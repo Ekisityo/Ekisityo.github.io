@@ -43,10 +43,11 @@
     }
 
     // Function to open modal with the selected image and product details
-    function openModal(imageSrc, productTitle, productDescription, productPrice) {
+    function openModal(imageSrc, productTitle, productDescription, productList, productPrice) {
       document.getElementById('modalImage').src = imageSrc;
       document.getElementById('modalProductTitle').textContent = productTitle;
       document.getElementById('modalProductDescription').textContent = productDescription;
+      document.getElementById('modalProductList').textContent = productList;
       document.getElementById('modalProductPrice').textContent = productPrice;
       document.getElementById('imageModal').classList.remove('hidden'); // Show modal
     }
@@ -102,7 +103,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Product Card 1 -->
       <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('feb02936-bd3d-4870-a188-d304f2186a08.jpg', 'Parcel Bayi Awal Ceria', 'Paket sederhana yang memberikan perlengkapan dasar untuk bayi baru lahir. Cocok untuk hadiah pertama atau sebagai tambahan untuk orang tua baru.', 'Rp 100.000 - Rp 250.000')">
+        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('feb02936-bd3d-4870-a188-d304f2186a08.jpg', 'Parcel Bayi Awal Ceria', 'Paket sederhana yang memberikan perlengkapan dasar untuk bayi baru lahir. Cocok untuk hadiah pertama atau sebagai tambahan untuk orang tua baru.', 'Selimut bayi (katun lembut),Sepatu bayi,Pakaian bayi (1 stel),Mainan bayi lembut,Handuk kecil', 'Rp 100.000 - Rp 250.000')">
           <img src="feb02936-bd3d-4870-a188-d304f2186a08.jpg" alt="Parcel Bayi 1" class="w-full h-full object-cover rounded-md">
         </div>
         <div class="flex flex-col flex-grow mt-4">
@@ -116,7 +117,7 @@
     
       <!-- Product Card 2 -->
       <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg', 'Parcel Bayi Cinta Sayang', 'Pakaian bayi yang nyaman dan lembut. Terbuat dari bahan berkualitas tinggi untuk kenyamanan si kecil.', 'Rp 50.000 - Rp 120.000')">
+        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg', 'Parcel Bayi Cinta Sayang', 'Pakaian bayi yang nyaman dan lembut. Terbuat dari bahan berkualitas tinggi untuk kenyamanan si kecil.', 'Pakaian bayi (3-4 stel),Kaos kaki bayi,Sarung tangan bayi,Bib bayi,Botol atau empeng bayi,Set perawat', 'Rp 50.000 - Rp 120.000')">
           <img src="f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg" alt="Set Pakaian Bayi" class="w-full h-full object-cover rounded-md">
         </div>
         <div class="flex flex-col flex-grow mt-4">
@@ -130,7 +131,7 @@
     
       <!-- Product Card 3 -->
       <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('fdf82897-f972-4131-8c12-c1eb402ff943.jpg', 'Parcel Bayi Bintang Kecil', 'Parcel bayi eksklusif dengan barang-barang premium yang dipilih dengan hati-hati untuk memberikan kenyamanan maksimal pada bayi. Ideal untuk orang tua yang menginginkan yang terbaik untuk buah hati mereka.', 'Rp 500.000 - Rp 1.000.000+')">
+        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('fdf82897-f972-4131-8c12-c1eb402ff943.jpg', 'Parcel Bayi Bintang Kecil', 'Parcel bayi eksklusif dengan barang-barang premium yang dipilih dengan hati-hati untuk memberikan kenyamanan maksimal pada bayi. Ideal untuk orang tua yang menginginkan yang terbaik untuk buah hati mereka.', 'Pakaian bayi premium (beberapa stel pakaian berkualitas tinggi),Sepatu bayi atau sandal,Set handuk bayi (bambu atau katun organik),Set perawatan bayi (sampo, lotion, minyak bayi),Selimut bayi yang dipersonalisasi,Mainan plush bayi yang lembut,Gendongan bayi atau sling', 'Rp 500.000 - Rp 1.000.000+')">
           <img src="fdf82897-f972-4131-8c12-c1eb402ff943.jpg" alt="Parcel Bayi Bintang Kecil" class="w-full h-full object-cover rounded-md">
         </div>
         <div class="flex flex-col flex-grow mt-4">
@@ -154,6 +155,7 @@
       <img id="modalImage" src="" alt="Enlarged Image" class="max-w-full max-h-screen p-4 bg-white rounded shadow-lg" />
       <h3 id="modalProductTitle" class="text-xl font-semibold text-blue-600 mt-4"></h3>
       <p id="modalProductDescription" class="text-gray-700 my-2"></p>
+      <p id="modalProductList" class="text-gray-700 my-2"></p>
       <p id="modalProductPrice" class="font-bold text-lg text-gray-800"></p>
       <button class="absolute top-4 right-4 text-white text-2xl" onclick="closeModal(event)">&times;</button>
     </div>
