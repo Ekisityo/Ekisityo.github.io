@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby Parcel Store</title>
+  <title>Toko</title>
+  <meta property="og:title" content="Toko Perlengkapan anak - Jual Kebutuhan anak">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Belanja Semua Kebutuhan bayi anda">
+  <meta property="og:url" content="https://ekisityo.github.io/store.html">
+  <meta property="og:image" content="https://img-cdn.medkomtek.com/RarFwzdO-T_Tbh0jXVFCOK19FtY=/0x0/smart/filters:quality(100):format(webp)/article/biMOugX4n7k2-OyA0Z5qL/original/049742300_1506494229-Panduan-Membeli-Perlengkapan-Bayi-yang-Baru-Lahir.jpg">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
     let cart = [];
@@ -23,7 +28,7 @@
       // If there are items in the cart
       if (cart.length > 0) {
         const items = cart.join(", ");
-        const waMessage = `Hello! I'd like to order the following items: ${items}`;
+        const waMessage = `Halo saya berminat dengan barang ini : ${items}`;
         waLink.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
         waLink.classList.remove("pointer-events-none", "opacity-50");
 
@@ -37,9 +42,12 @@
       }
     }
 
-    // Function to open modal with the selected image
-    function openModal(imageSrc) {
+    // Function to open modal with the selected image and product details
+    function openModal(imageSrc, productTitle, productDescription, productPrice) {
       document.getElementById('modalImage').src = imageSrc;
+      document.getElementById('modalProductTitle').textContent = productTitle;
+      document.getElementById('modalProductDescription').textContent = productDescription;
+      document.getElementById('modalProductPrice').textContent = productPrice;
       document.getElementById('imageModal').classList.remove('hidden'); // Show modal
     }
 
@@ -61,12 +69,12 @@
           itemElement.classList.add('py-2', 'border-b', 'border-gray-300');
           itemElement.innerHTML = `
             <span>${item}</span>
-            <a href="https://wa.me/0812345678?text=${encodeURIComponent(`Hi, I want to ask about ${item}`)}" target="_blank" class="text-blue-600 hover:underline text-sm">Tanya via WhatsApp</a>
+            <a href="https://wa.me/0812345678?text=${encodeURIComponent(`halo, saya ingin bertanya tentang barang ini ${item}`)}" target="_blank" class="text-white px-4 py-2 rounded" style="background-color: #25D366;">Tanya via WhatsApp</a>
           `;
           cartList.appendChild(itemElement);
         });
       } else {
-        cartList.innerHTML = '<li class="py-2">Your cart is empty.</li>';
+        cartList.innerHTML = '<li class="py-2">Tidak Ada Barang.</li>';
       }
 
       cartModal.classList.remove('hidden');
@@ -80,78 +88,58 @@
 </head>
 <body class="bg-gray-100 font-sans text-gray-900">
   <header class="bg-blue-600 p-6 text-white flex justify-between items-center">
-    <h1 class="text-2xl font-bold"><a href="index.html">Baby Parcel Store</a></h1>
+    <h1 class="text-2xl font-bold"><a href="index.html">HI KIDS STORE</a></h1>
     <!-- Cart Button with Counter -->
     <div class="relative">
       <button onclick="openCart()" class="bg-green-500 text-white px-4 py-2 rounded inline-block hover:bg-green-600">
-        Cart (<span id="cartCounter">0</span>)
+        Keranjang (<span id="cartCounter">0</span>)
       </button>
     </div>
   </header>
 
   <main class="container mx-auto py-12 px-6">
-    <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">Our Baby Parcels</h2>
+    <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">Produk Parcel Bayi</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Product Card 1 -->
       <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('feb02936-bd3d-4870-a188-d304f2186a08.jpg')">
-          <img src="feb02936-bd3d-4870-a188-d304f2186a08.jpg" alt="Baby Parcel 1" class="w-full h-full object-cover rounded-md">
+        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('feb02936-bd3d-4870-a188-d304f2186a08.jpg', 'Parcel Bayi Awal Ceria', 'Paket sederhana yang memberikan perlengkapan dasar untuk bayi baru lahir. Cocok untuk hadiah pertama atau sebagai tambahan untuk orang tua baru.', 'Rp 100.000 - Rp 250.000')">
+          <img src="feb02936-bd3d-4870-a188-d304f2186a08.jpg" alt="Parcel Bayi 1" class="w-full h-full object-cover rounded-md">
         </div>
         <div class="flex flex-col flex-grow mt-4">
-          <h3 class="text-xl font-semibold text-blue-600">Newborn Essentials</h3>
-          <p class="text-gray-700 my-2">A perfect gift for newborns, filled with essentials.</p>
-          <p class="font-bold text-lg text-gray-800">$29.99</p>
+          <h3 class="text-xl font-semibold text-blue-600">Parcel Bayi "Awal Ceria"</h3>
+          <p class="text-gray-700 my-2">Paket sederhana yang memberikan perlengkapan dasar untuk bayi baru lahir. Cocok untuk hadiah pertama atau sebagai tambahan untuk orang tua baru.</p>
+          <p class="font-bold text-lg text-gray-800">Rp 100.000 - Rp 250.000</p>
         </div>
-        <button onclick="addToCart('Newborn Essentials')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-        <a href="https://wa.me/0812345678?text=Hi, I want to ask about Newborn Essentials" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
+        <button onclick="addToCart('Parcel Bayi "Awal Ceria"')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+        <a href="https://wa.me/0812345678?text=Hi, I want to ask about Parcel Bayi 'Awal Ceria'" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
       </div>
     
       <!-- Product Card 2 -->
       <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg')">
-          <img src="f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg" alt="Baby Parcel 2" class="w-full h-full object-cover rounded-md">
+        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg', 'Parcel Bayi "Cinta Sayang"', 'Pakaian bayi yang nyaman dan lembut. Terbuat dari bahan berkualitas tinggi untuk kenyamanan si kecil.', 'Rp 50.000 - Rp 120.000')">
+          <img src="f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg" alt="Set Pakaian Bayi" class="w-full h-full object-cover rounded-md">
         </div>
         <div class="flex flex-col flex-grow mt-4">
-          <h3 class="text-xl font-semibold text-blue-600">Baby Bath Set</h3>
-          <p class="text-gray-700 my-2">A delightful set for baby's bath time.</p>
-          <p class="font-bold text-lg text-gray-800">$39.99</p>
+          <h3 class="text-xl font-semibold text-blue-600">Parcel Bayi "Cinta Sayang"</h3>
+          <p class="text-gray-700 my-2">Paket lengkap dengan barang-barang penting untuk perawatan dan kenyamanan bayi. Menyediakan berbagai kebutuhan sehari-hari untuk orang tua baru.</p>
+          <p class="font-bold text-lg text-gray-800">Rp 50.000 - Rp 120.000</p>
         </div>
-        <button onclick="addToCart('Baby Bath Set')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-        <a href="https://wa.me/0812345678?text=Hi, I want to ask about Baby Bath Set" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
+        <button onclick="addToCart('Set Pakaian Bayi')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
+        <a href="https://wa.me/0812345678?text=Hi, I want to ask about Set Pakaian Bayi" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
       </div>
     
       <!-- Product Card 3 -->
       <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('fdf82897-f972-4131-8c12-c1eb402ff943.jpg')">
-          <img src="fdf82897-f972-4131-8c12-c1eb402ff943.jpg" alt="Baby Parcel 3" class="w-full h-full object-cover rounded-md">
+        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('fdf82897-f972-4131-8c12-c1eb402ff943.jpg', 'Parcel Bayi "Bintang Kecil"', 'Parcel bayi eksklusif dengan barang-barang premium yang dipilih dengan hati-hati untuk memberikan kenyamanan maksimal pada bayi. Ideal untuk orang tua yang menginginkan yang terbaik untuk buah hati mereka.', 'Rp 500.000 - Rp 1.000.000+')">
+          <img src="fdf82897-f972-4131-8c12-c1eb402ff943.jpg" alt="Sleepy Baby Kit" class="w-full h-full object-cover rounded-md">
         </div>
         <div class="flex flex-col flex-grow mt-4">
           <h3 class="text-xl font-semibold text-blue-600">Sleepy Baby Kit</h3>
-          <p class="text-gray-700 my-2">Comfort items to help your baby sleep.</p>
-          <p class="font-bold text-lg text-gray-800">$24.99</p>
+          <p class="text-gray-700 my-2">Parcel bayi eksklusif dengan barang-barang premium yang dipilih dengan hati-hati untuk memberikan kenyamanan maksimal pada bayi. Ideal untuk orang tua yang menginginkan yang terbaik untuk buah hati mereka.</p>
+          <p class="font-bold text-lg text-gray-800">Rp 500.000 - Rp 1.000.000+</p>
         </div>
         <button onclick="addToCart('Sleepy Baby Kit')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
         <a href="https://wa.me/0812345678?text=Hi, I want to ask about Sleepy Baby Kit" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
-      </div>
-    </div>
-
-    <!-- Modal for Image Enlargement -->
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50" onclick="closeModal()">
-      <div class="relative">
-        <img id="modalImage" src="" alt="Enlarged Image" class="max-w-full max-h-screen p-4 bg-white rounded shadow-lg" />
-        <button class="absolute top-4 right-4 text-white text-2xl" onclick="closeModal(event)">&times;</button>
-      </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div id="cartModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden z-50 p-6">
-      <div class="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/2">
-        <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
-        <ul id="cartItems" class="space-y-4"></ul>
-        <div class="mt-6 flex justify-between">
-          <button onclick="closeCart()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
-          <a id="waOrderLink" href="#" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded inline-block hover:bg-green-600 pointer-events-none opacity-50">Order via WhatsApp</a>
-        </div>
       </div>
     </div>
   </main>
@@ -159,5 +147,29 @@
   <footer class="bg-gray-800 p-6 text-center text-white">
     <p>&copy; 2024 Baby Parcel Store. All rights reserved.</p>
   </footer>
+
+  <!-- Modal for Image Enlargement and Product Details -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50" onclick="closeModal()">
+    <div class="relative bg-white p-6 rounded shadow-lg w-full max-w-lg">
+      <img id="modalImage" src="" alt="Enlarged Image" class="max-w-full max-h-screen p-4 bg-white rounded shadow-lg" />
+      <h3 id="modalProductTitle" class="text-xl font-semibold text-blue-600 mt-4"></h3>
+      <p id="modalProductDescription" class="text-gray-700 my-2"></p>
+      <p id="modalProductPrice" class="font-bold text-lg text-gray-800"></p>
+      <button class="absolute top-4 right-4 text-white text-2xl" onclick="closeModal(event)">&times;</button>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden z-50 p-6">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/2">
+      <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+      <ul id="cartItems" class="space-y-4"></ul>
+      <div class="mt-6 flex justify-between">
+        <button onclick="closeCart()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
+        <a id="waOrderLink" href="#" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded inline-block hover:bg-green-600 pointer-events-none opacity-50">Order via WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
