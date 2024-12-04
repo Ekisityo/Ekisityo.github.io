@@ -4,10 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta property="og:title" content="Dokter Anak Terpercaya - Kesehatan Anak Anda Prioritas Kami" />
+    <meta property="og:description" content="Dapatkan perawatan medis terbaik untuk anak-anak Anda. Dokter anak berpengalaman siap memberikan layanan kesehatan dengan pendekatan yang ramah dan profesional." />
+    <meta property="og:image" content="https://admin.reginamarishospital.com/assets/img/reginamaris/caraousel_multi-anak-1709191446.jpg" />
+    <meta property="og:url" content="https://ekisityo.github.io/contact.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HI KIDS" />
+    <meta property="og:locale" content="id_ID" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      #mobileMenu {
+      transform: translateX(100%); 
+      transition: transform 0.3s ease-in-out;
+    }
+
+    #mobileMenu a {
+      z-index: 50;
+    }
+
+    #mobileMenu.open {
+      transform: translateX(0);
+    }
+    </style>
 
 </head>
 <body>
+  <header id="navbar" class="bg-transparent fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out font-semibold">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <div id="logo" class="text-2xl font-bold text-black"><a href="/">HI KIDS</a></div>
+
+      <!-- Hamburger Button -->
+      <div class="md:hidden flex items-center">
+        <button id="hamburger" class="text-black p-2 rounded-md hover:bg-none focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navbar Links -->
+      <nav id="navMenu" class="space-x-6 hidden md:flex">
+        <a href="/" id="" class="text-black hover:text-blue-600 transition-colors duration-300">Beranda</a>
+        <a href="#articles" id="" class="text-black hover:text-blue-600 transition-colors duration-300">Artikel</a>
+        <a href="store.html" id="linkToko" class="text-black hover:text-blue-600 transition-colors duration-300">Toko</a>
+        <a href="comingsoon.html" id="linkAPK" class="text-black hover:text-blue-600 transition-colors duration-300">Apps</a>
+        <a href="contact.html" id="linkKontak" class="text-black hover:text-blue-600 transition-colors duration-300">Kontak</a>
+      </nav>
+
+      <!-- Button untuk Konsultasi (hanya di mobile) -->
+      <!-- <a href="#" class="bg-blue-600 text-black px-4 py-2 rounded-lg hover:bg-blue-700 md:hidden">Jadwalkan Konsultasi</a> -->
+    </div>
+  </header>
+
+  <!-- Menu Samping untuk Mobile -->
+  <div id="mobileMenu" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-40 hidden flex justify-end">
+    <!-- Bagian overlay ini yang akan menutup menu ketika diklik -->
+    <div id="overlay" class="absolute inset-0"></div>
+    <div class="flex flex-col items-center w-64 bg-white py-6">
+      <button id="closeMobileMenu" class="text-black text-3xl px-4 py-2">
+        &times;
+      </button>
+        <a href="/" id="" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Beranda</a>
+        <a href="#articles" id="" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Artikel</a>
+        <a href="store.html" id="linkToko" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Toko</a>
+        <a href="comingsoon.html" id="linkAPK" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Apps</a>
+        <a href="contact.html" id="linkKontak" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Kontak</a>
+        <!-- <a href="#" class="bg-blue-600 text-black px-6 py-3 rounded-lg mt-4 hover:bg-blue-700">Jadwalkan Konsultasi</a> -->
+    </div>
+  </div>
+
     <section id="contact" class="py-16 bg-white">
         <div class="container mx-auto px-6 text-center">
           <!-- Judul Halaman Kontak -->
@@ -21,8 +89,8 @@
             <!-- Alamat -->
             <div class="p-6 bg-blue-50 rounded-lg shadow-lg">
               <h3 class="text-xl font-semibold text-blue-600 mb-4">Alamat Kami</h3>
-              <p class="text-gray-700">Jl. Sehat No. 123, Jakarta, Indonesia</p>
-              <a href="https://www.google.com/maps?q=Jl.+Sehat+No.+123,+Jakarta" target="_blank" class="text-blue-600 hover:underline mt-4 inline-block">Lihat di Google Maps</a>
+              <p class="text-gray-700">Jl. Soekarno Hatta Jl. Rembuksari No.1 A, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa Timur 65113</p>
+              <a href="https://g.co/kgs/FjajtSt" target="_blank" class="text-blue-600 hover:underline mt-4 inline-block">Lihat di Google Maps</a>
             </div>
       
             <!-- Telepon -->
@@ -65,5 +133,80 @@
         </div>
       </section>
       
+      <script>
+        // JavaScript untuk menambahkan perubahan warna pada navbar saat scroll
+        window.addEventListener('scroll', function() {
+          const navbar = document.getElementById('navbar');
+          const links = document.querySelectorAll('nav a');
+          const logo = document.getElementById('logo');
+          const hamburger = document.getElementById('hamburger');
+          
+          if (window.scrollY > 30) {
+            // Setelah scroll, tambahkan slate-300 ke teks link dan transparansi navbar
+            links.forEach(link => {
+              link.classList.remove('text-black');
+              link.classList.add('text-black');
+              // 
+              navbar.classList.add('backdrop-blur-lg', 'bg-white', 'bg-opacity-30','shadow-2xl');
+              logo.classList.remove('text-black');
+              logo.classList.add('text-black');
+              // 
+              hamburger.classList.add('text-black');
+              hamburger.classList.remove('text-black');
+            });
+          } else {
+            // Sebelum scroll, reset warna link menjadi putih
+            links.forEach(link => {
+              link.classList.remove('text-black');
+              link.classList.add('text-black');
+              // 
+              navbar.classList.remove('backdrop-blur-lg', 'bg-white', 'bg-opacity-30','shadow-2xl');
+              // 
+              logo.classList.remove('text-black');
+              logo.classList.add('text-black');
+              // 
+              hamburger.classList.remove('text-black');
+              hamburger.classList.add('text-black');
+            });
+          }
+        });
+        
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const overlay = document.getElementById('overlay');
+        
+        // Menampilkan menu ketika tombol hamburger diklik
+        hamburger.addEventListener('click', () => {
+          mobileMenu.classList.remove('hidden');
+          mobileMenu.classList.add('open');
+        });
+    
+        // Menutup menu ketika tombol close diklik
+        closeMobileMenu.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          mobileMenu.classList.add('hidden');
+        });
+    
+        // Menutup menu ketika klik di luar menu (pada overlay)
+        overlay.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          mobileMenu.classList.add('hidden');
+        });
+    
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Mencegah perilaku default
+    
+            const targetElement = document.querySelector(this.getAttribute('href'));
+    
+            // Melakukan scroll ke elemen yang dituju dengan efek smooth
+            targetElement.scrollIntoView({
+              behavior: 'smooth',  // Scroll dengan efek smooth
+              block: 'start'       // Tempatkan elemen di bagian atas viewport
+            });
+          });
+        });
+      </script>
 </body>
 </html>

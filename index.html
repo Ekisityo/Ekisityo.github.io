@@ -12,12 +12,13 @@
   <meta property="og:site_name" content="HI KIDS" />
   <meta property="og:locale" content="id_ID" />
   
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
   
   <style>
     
     .hero-bg {
-      background-image: url('https://admin.reginamarishospital.com/assets/img/reginamaris/caraousel_multi-anak-1709191446.jpg'); 
+      background-image: url('https://i.postimg.cc/2z6qjwyf/bg-hero.jpg'); 
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -35,28 +36,37 @@
     #mobileMenu.open {
       transform: translateX(0);
     }
+
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    }
   </style>
 </head>
 <body class="font-sans antialiased text-gray-900 ">
 
   <!-- Header -->
-  <header id="navbar" class="bg-transparent fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+  <header id="navbar" class="bg-transparent fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out font-semibold">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center z-50">
       <div id="logo" class="text-2xl font-bold text-white"><a href="/">HI KIDS</a></div>
 
       <!-- Hamburger Button -->
       <div class="md:hidden flex items-center">
         <button id="hamburger" class="text-white p-2 rounded-md hover:bg-none focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          <i id="hamburger-icon" class="fa-solid fa-bars"></i>
         </button>
       </div>
 
       <!-- Navbar Links -->
       <nav id="navMenu" class="space-x-6 hidden md:flex">
+        <a href="/" id="" class="text-white hover:text-blue-600 transition-colors duration-300">Beranda</a>
+        <a href="#articles" id="" class="text-white hover:text-blue-600 transition-colors duration-300">Artikel</a>
         <a href="store.html" id="linkToko" class="text-white hover:text-blue-600 transition-colors duration-300">Toko</a>
-        <a href="comingsoon.html" id="linkAPK" class="text-white hover:text-blue-600 transition-colors duration-300">APK</a>
+        <a href="comingsoon.html" id="linkAPK" class="text-white hover:text-blue-600 transition-colors duration-300">Apps</a>
         <a href="contact.html" id="linkKontak" class="text-white hover:text-blue-600 transition-colors duration-300">Kontak</a>
       </nav>
 
@@ -67,30 +77,28 @@
 
   <!-- Menu Samping untuk Mobile -->
   <div id="mobileMenu" class="fixed inset-0 bg-gray-800 bg-opacity-75 z-40 hidden flex justify-end">
-    <!-- Bagian overlay ini yang akan menutup menu ketika diklik -->
-    <div id="overlay" class="absolute inset-0"></div>
-    <div class="flex flex-col items-center w-64 bg-white py-6">
-      <button id="closeMobileMenu" class="text-white text-3xl px-4 py-2">
-        &times;
-      </button>
-        <a href="store.html" id="linkToko" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Toko</a>
-        <a href="comingsoon.html" id="linkAPK" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">APK(comingsoon)</a>
-        <a href="contact.html" id="linkKontak" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Kontak</a>
-        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg mt-4 hover:bg-blue-700">Jadwalkan Konsultasi</a>
+    <div id="overlay" class="absolute inset-0 z-0"></div>
+    <div class="flex flex-col items-center w-64 bg-white pt-24 z-20">
+      <a href="/" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Beranda</a>
+      <a href="#articles" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Artikel</a>
+      <a href="store.html" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Toko</a>
+      <a href="comingsoon.html" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Apps</a>
+      <a href="contact.html" class="text-black hover:text-blue-600 transition-colors duration-300 py-4 text-md">Kontak</a>
     </div>
   </div>
 
   <!-- Hero Section -->
-  <section class="hero-bg h-screen flex items-center text-white relative">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="container mx-auto px-6 py-16 relative z-10 flex justify-start items-center">
+  <section class=" hero-bg h-screen flex items-center text-white relative">
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div class="pt-60 relative z-10 flex justify-start items-center px-4 md:px-16">
       <div class="text-left max-w-xl">
-        <h1 class="text-4xl font-bold mb-4">Selamat Datang di Klinik Dokter Anak</h1>
-        <p class="mb-8">Layanan kesehatan anak terbaik dengan dokter berpengalaman yang peduli dengan tumbuh kembang buah hati Anda.</p>
-        <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Jadwalkan Konsultasi</a>
+        <h1 class="md:text-5xl text-3xl font-bold mb-4">Langkah Kecil Mencegah Dampak Besar</h1>
+        <p class="mb-8 md:text-lg text-sm font-semibold">Kami hadir untuk mendukung perjalanan dalam mengatasi masalah Kesehatan dan mencapai kesehatan bersama</p>
+        <a href="#" class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Mulai Sekarang</a>
       </div>
     </div>
-  </section>    
+  </section>
+      
 
   <!-- Features Section -->
   <section class="bg-white py-16">
@@ -99,24 +107,24 @@
       <p class="text-gray-700 text-lg mb-8">Kami menawarkan berbagai layanan kesehatan khusus untuk anak-anak, mulai dari konsultasi medis, pemeriksaan rutin, hingga layanan darurat. Prioritas kami adalah memberikan perawatan yang terbaik dengan pendekatan yang ramah dan penuh perhatian.</p>
   
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="p-6 bg-blue-50 rounded-lg shadow">
+        <div class="p-6 bg-blue-50 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300">
           <h3 class="text-xl font-semibold text-blue-600">Konsultasi Dokter Anak</h3>
           <p class="text-gray-700 mt-2">Dapatkan konsultasi langsung dengan dokter anak berpengalaman untuk semua masalah kesehatan anak Anda. Kami siap membantu kapan saja.</p>
         </div>
   
-        <div class="p-6 bg-blue-50 rounded-lg shadow">
+        <div class="p-6 bg-blue-50 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300">
           <h3 class="text-xl font-semibold text-blue-600">Pemeriksaan Kesehatan Rutin</h3>
           <p class="text-gray-700 mt-2">Pemeriksaan kesehatan rutin untuk memastikan tumbuh kembang anak berjalan dengan baik dan mendeteksi masalah kesehatan sejak dini.</p>
         </div>
   
-        <div class="p-6 bg-blue-50 rounded-lg shadow">
+        <div class="p-6 bg-blue-50 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300">
           <h3 class="text-xl font-semibold text-blue-600">Vaksinasi Anak</h3>
           <p class="text-gray-700 mt-2">Lindungi anak Anda dari penyakit berbahaya dengan vaksinasi yang terjadwal sesuai dengan pedoman medis terkini.</p>
         </div>
       </div>
   
       <p class="text-gray-700 text-lg mt-8">Kami percaya setiap anak berhak mendapatkan perawatan yang terbaik. Dengan pengalaman dan perhatian kami, Anda bisa merasa tenang bahwa buah hati Anda berada di tangan yang tepat.</p>
-      <a href="#cta" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 mt-6 inline-block">Pelajari Lebih Lanjut</a>
+      <a href="/artikel" class="text-white bg-blue-500 hover:bg-blue-600 hover:scale-105 transition-all duration-300 ease-in-out rounded-full px-6 py-3 mt-6 inline-block font-semibold text-sm sm:text-base md:text-lg">Kenali Kami Lebih Jauh <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
 
@@ -124,19 +132,19 @@
   <section id="articles" class="py-16 bg-white">
     <div class="container mx-auto px-6 text-center">
       <!-- Judul Halaman Artikel -->
-      <h2 class="text-3xl font-bold text-gray-900 mb-8">Artikel Terbaru</h2>
-      <p class="text-lg text-gray-700 mb-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Artikel Terbaru</h2>
+      <p class="text-base sm:text-lg text-gray-700 mb-12">
         Temukan berbagai artikel tentang kesehatan anak, tips parenting, dan informasi medis yang bermanfaat bagi Anda dan buah hati.
       </p>
   
       <!-- Daftar Artikel -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
         <!-- Artikel 1 -->
-        <div class="bg-blue-50 rounded-lg shadow-lg overflow-hidden">
-          <img src="tahuayam.jpg" alt="Resep MPASI: Tahu Ayam" class="w-full h-56 object-cover">
+        <div class="bg-blue-50 rounded-lg shadow-md hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 overflow-hidden">
+          <img src="tahuayam.jpg" alt="Resep MPASI: Tahu Ayam" class="w-full h-56 object-cover aspect-ratio-3/2">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Resep MPASI: Tahu Ayam</h3>
-            <p class="text-gray-700 mb-4">
+            <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Resep MPASI: Tahu Ayam</h3>
+            <p class="text-sm sm:text-base text-gray-700 mb-4">
               Topik: Resep MPASI, 12-23 Bulan, Camilan, Camilan Anak, Featured Resep
             </p>
             <a href="artikelbaca.html" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
@@ -144,23 +152,23 @@
         </div>
   
         <!-- Artikel 2 -->
-        <div class="bg-blue-50 rounded-lg shadow-lg overflow-hidden">
-          <img src="https://via.placeholder.com/400x250" alt="Artikel 2" class="w-full h-56 object-cover">
+        <div class="bg-blue-50 rounded-lg shadow-md hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 overflow-hidden">
+          <img src="img/tantrum.webp" alt="Artikel 2" class="w-full h-56 object-cover">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Pentingnya Imunisasi Anak Sejak Dini</h3>
-            <p class="text-gray-700 mb-4">
-              Imunisasi adalah salah satu cara terbaik untuk melindungi anak-anak dari berbagai penyakit berbahaya. Pelajari lebih lanjut tentang pentingnya imunisasi.
+            <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Anak Mudah Tantrum Tanda Emosi Tak Stabil, Benarkah?</h3>
+            <p class="text-sm sm:text-base text-gray-700 mb-4">
+              Tantrum umumnya terjadi ketika anak memiliki dua emosi yang kuat, yaitu kemarahan dan kesedihan.
             </p>
-            <a href="#" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
+            <a href="/artikel2.html" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
           </div>
         </div>
   
         <!-- Artikel 3 -->
-        <div class="bg-blue-50 rounded-lg shadow-lg overflow-hidden">
+        <div class="bg-blue-50 rounded-lg shadow-md hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 overflow-hidden">
           <img src="https://via.placeholder.com/400x250" alt="Artikel 3" class="w-full h-56 object-cover">
           <div class="p-6">
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Mengatasi Masalah Tidur pada Anak</h3>
-            <p class="text-gray-700 mb-4">
+            <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Mengatasi Masalah Tidur pada Anak</h3>
+            <p class="text-sm sm:text-base text-gray-700 mb-4">
               Masalah tidur bisa menjadi tantangan bagi banyak orang tua. Temukan tips dan trik untuk membantu anak tidur lebih nyenyak setiap malam.
             </p>
             <a href="#" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
@@ -168,8 +176,11 @@
         </div>
   
       </div>
+
+      <a href="/artikel" class="text-white bg-blue-500 hover:bg-blue-600 hover:scale-105 transition-all duration-300 ease-in-out rounded-full px-6 py-3 mt-6 inline-block font-semibold text-sm sm:text-base md:text-lg">Lihat Artikel Lainnya <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </section>
+
 
   <!-- Call to Action Section -->
   <section id="cta" class="bg-blue-600 py-16">
@@ -182,12 +193,22 @@
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-8">
-    <div class="container mx-auto px-6 text-center">
-      <p>&copy; 2024 Dokter Anak. Semua hak cipta dilindungi.</p>
-      <div class="mt-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-sm">
+        <p class="text-sm">&copy; 2024 HI KIDS</p>
+      </div>
+      <div class="text-sm">
         <a href="about.html" class="text-gray-400 hover:text-white mr-4">Tentang Kami</a>
         <a href="contact.html" class="text-gray-400 hover:text-white mr-4">Kontak</a>
         <a href="#privacy" class="text-gray-400 hover:text-white">Kebijakan Privasi</a>
+      </div>
+      <div class="flex items-center">
+        <a href="https://www.tiktok.com/id-ID/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white mr-4">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white mr-4">
+          <i class="fab fa-instagram"></i>
+        </a>
       </div>
     </div>
   </footer>
@@ -204,11 +225,11 @@
         // Setelah scroll, tambahkan slate-300 ke teks link dan transparansi navbar
         links.forEach(link => {
           link.classList.remove('text-white');
-          link.classList.add('text-slate-300');
+          link.classList.add('text-black');
           // 
-          navbar.classList.add('backdrop-blur-lg', 'bg-white', 'bg-opacity-100');
-          // logo.classList.remove('text-white');
-          logo.classList.add('text-blue-600');
+          navbar.classList.add('backdrop-blur-lg', 'bg-white', 'bg-opacity-30','shadow-2xl');
+          logo.classList.remove('text-white');
+          logo.classList.add('text-black');
           // 
           hamburger.classList.add('text-black');
           hamburger.classList.remove('text-white');
@@ -216,12 +237,12 @@
       } else {
         // Sebelum scroll, reset warna link menjadi putih
         links.forEach(link => {
-          link.classList.remove('text-slate-300');
+          link.classList.remove('text-black');
           link.classList.add('text-white');
           // 
-          navbar.classList.remove('backdrop-blur-lg', 'bg-white', 'bg-opacity-100');
+          navbar.classList.remove('backdrop-blur-lg', 'bg-white', 'bg-opacity-30','shadow-2xl');
           // 
-          logo.classList.remove('text-blue-600');
+          logo.classList.remove('text-black');
           logo.classList.add('text-white');
           // 
           hamburger.classList.remove('text-black');
@@ -231,26 +252,74 @@
     });
     
     const hamburger = document.getElementById('hamburger');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
     const mobileMenu = document.getElementById('mobileMenu');
-    const closeMobileMenu = document.getElementById('closeMobileMenu');
     const overlay = document.getElementById('overlay');
-    
-    // Menampilkan menu ketika tombol hamburger diklik
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('open');
-    });
+    const navbar = document.getElementById('navbar');
+    const logo = document.getElementById('logo');
 
-    // Menutup menu ketika tombol close diklik
-    closeMobileMenu.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      mobileMenu.classList.add('hidden');
+    // Menambahkan event listener untuk tombol hamburger
+    hamburger.addEventListener('click', () => {
+      // Cek apakah menu sudah terbuka atau belum
+      const isMenuOpen = mobileMenu.classList.contains('open');
+      
+      if (isMenuOpen) {
+        // Jika menu sudah terbuka, tutup menu
+        mobileMenu.classList.remove('open');
+        mobileMenu.classList.add('hidden');
+
+        // Kembalikan ikon hamburger ke 'fa-bars'
+        hamburgerIcon.classList.remove("fa-x");
+        hamburgerIcon.classList.add("fa-bars");
+
+        // Hapus backdrop dan reset logo
+        navbar.classList.remove('backdrop-blur-lg', 'bg-white', 'bg-opacity-30', 'shadow-2xl');
+        logo.classList.remove('text-black');
+        logo.classList.add('text-white');
+      } else {
+        // Jika menu belum terbuka, buka menu
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('open');
+
+        // Ganti ikon menjadi 'fa-x'
+        hamburgerIcon.classList.remove("fa-bars");
+        hamburgerIcon.classList.add("fa-x");
+
+        // Tambahkan backdrop dan ubah warna navbar dan logo
+        navbar.classList.add('backdrop-blur-lg', 'bg-white', 'bg-opacity-30', 'shadow-2xl');
+        logo.classList.remove('text-white');
+        logo.classList.add('text-black');
+      }
     });
 
     // Menutup menu ketika klik di luar menu (pada overlay)
     overlay.addEventListener('click', () => {
       mobileMenu.classList.remove('open');
       mobileMenu.classList.add('hidden');
+      
+      // Kembalikan ikon hamburger ke fa-bars
+      hamburgerIcon.classList.remove("fa-x");
+      hamburgerIcon.classList.add("fa-bars");
+
+      // Hapus backdrop dan reset logo
+      navbar.classList.remove('backdrop-blur-lg', 'bg-white', 'bg-opacity-30', 'shadow-2xl');
+      logo.classList.remove('text-black');
+      logo.classList.add('text-white');
+    });
+
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Mencegah perilaku default
+
+        const targetElement = document.querySelector(this.getAttribute('href'));
+
+        // Melakukan scroll ke elemen yang dituju dengan efek smooth
+        targetElement.scrollIntoView({
+          behavior: 'smooth',  // Scroll dengan efek smooth
+          block: 'start'       // Tempatkan elemen di bagian atas viewport
+        });
+      });
     });
   </script>
 
