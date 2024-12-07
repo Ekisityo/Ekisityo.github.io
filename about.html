@@ -5,8 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang kami</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 <body>
+  <button id="menu-button" class="p-4 text-white bg-blue-600 hover:bg-blue-700 rounded-md md:hidden">
+    Menu
+  </button>
+
+  <!-- Navbar untuk Desktop dan Mobile -->
+  <div class="flex justify-between p-4 bg-white shadow-md">
+    <div class="text-xl font-semibold">Logo</div>
+
+    <!-- Navbar Links (Desktop) -->
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-lg text-gray-700 hover:text-blue-600">Home</a>
+      <a href="#" class="text-lg text-gray-700 hover:text-blue-600">About</a>
+      <a href="#" class="text-lg text-gray-700 hover:text-blue-600">Services</a>
+      <a href="#" class="text-lg text-gray-700 hover:text-blue-600">Contact</a>
+    </div>
+  </div>
+
+  <!-- Offcanvas Navbar (Mobile only) -->
+  <div id="offcanvas" class="fixed inset-0 bg-gray-800 bg-opacity-50 z-50 hidden">
+    <div class="absolute top-0 right-0 h-full bg-white w-64 transform translate-x-full transition-transform duration-300 ease-in-out" id="offcanvas-content">
+      <div class="flex justify-between p-4">
+        <span class="text-xl font-semibold">Menu</span>
+        <button id="close-button" class="text-xl">&times;</button>
+      </div>
+      <ul class="p-4 space-y-4">
+        <li><a href="#" class="block text-lg text-gray-700 hover:text-blue-600">Home</a></li>
+        <li><a href="#" class="block text-lg text-gray-700 hover:text-blue-600">About</a></li>
+        <li><a href="#" class="block text-lg text-gray-700 hover:text-blue-600">Services</a></li>
+        <li><a href="#" class="block text-lg text-gray-700 hover:text-blue-600">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-6 text-center">
           <!-- Judul Halaman -->
@@ -54,6 +88,34 @@
           </div>
         </div>
       </section>
-      
+      <script>
+        const menuButton = document.getElementById('menu-button');
+        const offcanvas = document.getElementById('offcanvas');
+        const closeButton = document.getElementById('close-button');
+        const offcanvasContent = document.getElementById('offcanvas-content');
+    
+        // Show offcanvas
+        menuButton.addEventListener('click', () => {
+          offcanvas.classList.remove('hidden');
+          setTimeout(() => {
+            offcanvasContent.classList.remove('translate-x-full');
+          }, 10);
+        });
+    
+        // Close offcanvas
+        closeButton.addEventListener('click', () => {
+          offcanvasContent.classList.add('translate-x-full');
+          setTimeout(() => {
+            offcanvas.classList.add('hidden');
+          }, 300);
+        });
+    
+        // Optional: Close offcanvas if clicked outside
+        offcanvas.addEventListener('click', (e) => {
+          if (e.target === offcanvas) {
+            closeButton.click();
+          }
+        });
+      </script>
 </body>
 </html>
