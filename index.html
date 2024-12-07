@@ -43,11 +43,11 @@
       
       <!-- Desktop Navbar Links -->
       <div class="hidden md:flex space-x-6 font-semibold">
-        <a href="/" class="text-lg text-white hover:text-teal-500">Beranda</a>
-        <a href="#articles" class="text-lg text-white hover:text-teal-500">Artikel</a>
-        <a href="store.html" class="text-lg text-white hover:text-teal-500">Toko</a>
-        <a href="comingsoon.html" class="text-lg text-white hover:text-teal-500">Apps</a>
-        <a href="contact.html" class="text-lg text-white hover:text-teal-500">Kontak</a>
+        <a href="/" class="text-lg text-white hover:text-teal-700">Beranda</a>
+        <a href="#articles" class="text-lg text-white hover:text-teal-700">Artikel</a>
+        <a href="store.html" class="text-lg text-white hover:text-teal-700">Toko</a>
+        <a href="comingsoon.html" class="text-lg text-white hover:text-teal-700">Apps</a>
+        <a href="contact.html" class="text-lg text-white hover:text-teal-700">Kontak</a>
       </div>
     </nav>
   </header>
@@ -60,11 +60,11 @@
         <button id="close-button" class="text-xl">&times;</button>
       </div>
       <ul class="p-4 space-y-4">
-        <li><a href="/" class="block text-lg text-gray-700 hover:text-teal-500">Beranda</a></li>
-        <li><a href="#articles" class="block text-lg text-gray-700 hover:text-teal-500">Artikel</a></li>
-        <li><a href="store.html" class="block text-lg text-gray-700 hover:text-teal-500">Toko</a></li>
-        <li><a href="comingsoon.html" class="block text-lg text-gray-700 hover:text-teal-500">Apps</a></li>
-        <li><a href="contact.html" class="block text-lg text-gray-700 hover:text-teal-500">Kontak</a></li>
+        <li><a href="/" class="block text-lg text-gray-700 hover:text-teal-700">Beranda</a></li>
+        <li><a href="#articles" class="block text-lg text-gray-700 hover:text-teal-700">Artikel</a></li>
+        <li><a href="store.html" class="block text-lg text-gray-700 hover:text-teal-700">Toko</a></li>
+        <li><a href="comingsoon.html" class="block text-lg text-gray-700 hover:text-teal-700">Apps</a></li>
+        <li><a href="contact.html" class="block text-lg text-gray-700 hover:text-teal-700">Kontak</a></li>
       </ul>
     </div>
   </div>
@@ -168,8 +168,8 @@
   <!-- Call to Action Section -->
   <section id="cta" class="bg-blue-600 py-16">
     <div class="container mx-auto px-6 text-center text-white">
-      <h2 class="text-3xl font-bold mb-4">Siap Memberikan Perawatan Terbaik untuk Anak Anda?</h2>
-      <p class="text-lg mb-8">Daftarkan anak Anda hari ini dan jadwalkan konsultasi dengan dokter anak berpengalaman untuk kesehatan yang optimal.</p>
+      <h2 class="text-xl md:text-3xl font-bold mb-4">Siap Memberikan Perawatan Terbaik untuk Anak Anda?</h2>
+      <p class="text-base md:text-lg mb-8">Daftarkan anak Anda hari ini dan jadwalkan konsultasi dengan dokter anak berpengalaman untuk kesehatan yang optimal.</p>
       <a href="#jadwal-konsultasi" class="bg-white text-blue-600 px-6 py-3 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">Jadwalkan Konsultasi</a>
     </div>
   </section>
@@ -216,7 +216,7 @@
         <!-- Social Media (Centered on Mobile) -->
         <div class="text-center md:text-left">
           <h2 class="font-semibold text-lg mb-3">Ikuti Kami</h2>
-          <div class="flex items-center justify-center md:justify-center space-x-6 text-2xl">
+          <div class="flex items-center justify-center md:justify-center space-x-6 text-2xl ">
             <!-- Facebook -->
             <a href="https://facebook.com/" class="text-gray-300 hover:text-white">
               <i class="fab fa-facebook fa-lg"></i>
@@ -289,20 +289,20 @@
 
         for (let i = 0; i < navbarLinks.length; i++) {
           navbarLinks[i].classList.remove('text-white');
-          navbarLinks[i].classList.add('text-black');
+          navbarLinks[i].classList.add('text-teal-500');
         }
 
         navbarbtn.classList.remove('text-white');
-        navbarbtn.classList.add('text-black');
+        navbarbtn.classList.add('text-teal-500');
       } else {
         navbar.classList.remove('backdrop-blur-lg', 'bg-transparent', 'shadow-2xl');
 
         for (let i = 0; i < navbarLinks.length; i++) {
-          navbarLinks[i].classList.remove('text-black');
+          navbarLinks[i].classList.remove('text-teal-500');
           navbarLinks[i].classList.add('text-white');
         }
 
-        navbarbtn.classList.remove('text-black');
+        navbarbtn.classList.remove('text-teal-500');
         navbarbtn.classList.add('text-white');
       }
     });
