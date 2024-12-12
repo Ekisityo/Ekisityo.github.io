@@ -1,1 +1,1 @@
-# ekisityo.github.io
+# tip_hikids

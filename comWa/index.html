@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Chat Integration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Chat Button and Menu -->
+  <input class='chatMenu hidden' id='offchatMenu' type='checkbox'/>
+  <label class='chatButton' for='offchatMenu'>
+    <svg class='svg-1' viewBox='0 0 32 32'>
+      <g>
+        <path d='M16,2A13,13,0,0,0,8,25.23V29a1,1,0,0,0,.51.87A1,1,0,0,0,9,30a1,1,0,0,0,.51-.14l3.65-2.19A12.64,12.64,0,0,0,16,28,13,13,0,0,0,16,2Zm0,24a11.13,11.13,0,0,1-2.76-.36,1,1,0,0,0-.76.11L10,27.23v-2.5a1,1,0,0,0-.42-.81A11,11,0,1,1,16,26Z'></path>
+        <path d='M19.86,15.18a1.9,1.9,0,0,0-2.64,0l-.09.09-1.4-1.4.09-.09a1.86,1.86,0,0,0,0-2.64L14.23,9.55a1.9,1.9,0,0,0-2.64,0l-.8.79a3.56,3.56,0,0,0-.5,3.76,10.64,10.64,0,0,0,2.62,4A8.7,8.7,0,0,0,18.56,21a2.92,2.92,0,0,0,2.1-.79l.79-.8a1.86,1.86,0,0,0,0-2.64Zm-.62,3.61c-.57.58-2.78,0-4.92-2.11a8.88,8.88,0,0,1-2.13-3.21c-.26-.79-.25-1.44,0-1.71l.7-.7,1.4,1.4-.7.7a1,1,0,0,0,0,1.41l2.82,2.82a1,1,0,0,0,1.41,0l.7-.7,1.4,1.4Z'></path>
+      </g>
+    </svg>
+    <svg class='svg-2' viewBox='0 0 512 512'>
+      <path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3L233.4 256l-68.2 68.2c-6.2 6.2-6.2 16.4 0 22.6 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'></path>
+    </svg>
+  </label>
+  <div class='chatBox'>
+      <div class='chatContent'>
+        <div class='chatHeader'>
+          <img src='https://www.bytesvibe.com/wp-content/uploads/2024/08/cropped-Bytes-7.png' alt="BytesVibe Logo"/>
+          <div class='chatTitle'>BytesVibe <span>Usually replies within an hour</span></div>
+        </div>
+        <div class='chatText'>
+          <span>Hello, how can we help you?</span>
+          <span class='typing'>...</span>
+        </div>
+      </div>
+      <div class='chatStart'><input type='text' id='chatInput' placeholder='Type your message here'/>
+      <a href='javascript:void;' id='send-it'>Send</a>
+      </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="javascript.js"></script>
+</body>
+</html>
