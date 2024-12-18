@@ -1,200 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toko</title>
-  <meta property="og:title" content="Toko Perlengkapan anak - Jual Kebutuhan anak">
-  <meta property="og:type" content="website">
-  <meta property="og:description" content="Belanja Semua Kebutuhan bayi anda">
-  <meta property="og:url" content="https://ekisityo.github.io/store.html">
-  <meta property="og:image" content="https://img-cdn.medkomtek.com/RarFwzdO-T_Tbh0jXVFCOK19FtY=/0x0/smart/filters:quality(100):format(webp)/article/biMOugX4n7k2-OyA0Z5qL/original/049742300_1506494229-Panduan-Membeli-Perlengkapan-Bayi-yang-Baru-Lahir.jpg">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>E-Commerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/comWa/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animasi titik kecil kedip-kedip */
+    .dot-animation {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #FF6347;
+      border-radius: 50%;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+  </style>
   <script>
     let cart = [];
 
-    // add keranjang
-    function addToCart(itemName) {
-      cart.push(itemName); // Add item to cart array
-      alert(`${itemName} has been added to your cart.`);
-      updateCartLink();
+    // Menambahkan barang ke keranjang
+    function addToCart(productId, productName, price, btn) {
+      cart.push({ id: productId, name: productName, price });
+      updateCartCounter();
+      // Animasi titik kecil kedip-kedip dari produk ke keranjang
+      const cartButton = document.getElementById("cartButton");
+      const dot = document.createElement('div');
+      dot.classList.add('dot-animation');
+      document.body.appendChild(dot);
+
+      const rect = btn.getBoundingClientRect();  // Ambil posisi tombol
+      const cartRect = cartButton.getBoundingClientRect();  // Ambil posisi keranjang
+
+      // Posisi titik kecil dari tombol
+      dot.style.top = rect.top + window.scrollY + 'px';
+      dot.style.left = rect.left + window.scrollX + 'px';
+
+      // Kedip titik kecil
+      setTimeout(() => {
+        dot.style.top = cartRect.top + window.scrollY + 'px';
+        dot.style.left = cartRect.left + window.scrollX + 'px';
+      }, 10);
+
+      // Hapus titik setelah animasi selesai
+      setTimeout(() => {
+        dot.remove();
+      }, 1500);
     }
 
-    // Function to update the cart link and cart counter
-    function updateCartLink() {
-      const waNumber = "0812345678";
-      const waLink = document.getElementById("waOrderLink");
-
-      // if else
-      if (cart.length > 0) {
-        const items = cart.join(", ");
-        const waMessage = `Halo saya berminat dengan barang ini : ${items}`;
-        waLink.href = `https://wa.me/${waNumber}?text=${encodeURIComponent(waMessage)}`;
-        waLink.classList.remove("pointer-events-none", "opacity-50");
-
-        // Update cart counter
-        document.getElementById("cartCounter").textContent = cart.length;
-      } else {
-        // Disable the link and cart counter if the cart is empty
-        waLink.href = "#";
-        waLink.classList.add("pointer-events-none", "opacity-50");
-        document.getElementById("cartCounter").textContent = 0;
-      }
+    // Update jumlah barang di keranjang
+    function updateCartCounter() {
+      const cartCounter = document.getElementById("cartCounter");
+      cartCounter.textContent = cart.length;
     }
 
-    // Function to open modal with the selected image and product details
-    function openModal(imageSrc, productTitle, productDescription, productList, productPrice) {
-      document.getElementById('modalImage').src = imageSrc;
-      document.getElementById('modalProductTitle').textContent = productTitle;
-      document.getElementById('modalProductDescription').textContent = productDescription;
-      document.getElementById('modalProductList').textContent = productList;
-      document.getElementById('modalProductPrice').textContent = productPrice;
-      document.getElementById('imageModal').classList.remove('hidden'); // Show modal
-    }
-
-    // Function to close the modal
-    function closeModal(event) {
-      if (event) event.stopPropagation(); // Prevent closing modal when clicking the close button
-      document.getElementById('imageModal').classList.add('hidden'); // Hide modal
-    }
-
-    // Function to open cart modal
+    // Tampilkan keranjang
     function openCart() {
-      const cartModal = document.getElementById('cartModal');
-      const cartList = document.getElementById('cartItems');
-      cartList.innerHTML = ''; // Clear the current cart list
+      const cartModal = document.getElementById("cartModal");
+      const cartItemsContainer = document.getElementById("cartItems");
+      const totalAmountEl = document.getElementById("totalAmount");
+      let totalAmount = 0;
 
-      if (cart.length > 0) {
-        cart.forEach(item => {
-          const itemElement = document.createElement('li');
-          itemElement.classList.add('py-2', 'border-b', 'border-gray-300');
-          itemElement.innerHTML = `
-            <span>${item}</span>
-            <a href="https://wa.me/0812345678?text=${encodeURIComponent(`halo, saya ingin bertanya tentang barang ini ${item}`)}" target="_blank" class="text-white px-4 py-2 rounded" style="background-color: #25D366;">Tanya via WhatsApp</a>
-          `;
-          cartList.appendChild(itemElement);
-        });
+      // Reset isi keranjang
+      cartItemsContainer.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p class='text-gray-600'>Keranjang Anda kosong.</p>";
       } else {
-        cartList.innerHTML = '<li class="py-2">Tidak Ada Barang.</li>';
+        cart.forEach((item) => {
+          const itemElement = `
+            <div class="flex justify-between items-center py-2 border-b">
+              <span>${item.name}</span>
+              <span class="font-semibold text-gray-800">Rp ${item.price.toLocaleString()}</span>
+            </div>
+          `;
+          cartItemsContainer.innerHTML += itemElement;
+          totalAmount += item.price;
+        });
+        totalAmountEl.textContent = `Rp ${totalAmount.toLocaleString()}`;
       }
 
-      cartModal.classList.remove('hidden');
+      cartModal.classList.remove("hidden");
     }
 
-    // Function to close cart modal
+    // Tutup keranjang
     function closeCart() {
-      document.getElementById('cartModal').classList.add('hidden');
+      const cartModal = document.getElementById("cartModal");
+      cartModal.classList.add("hidden");
+    }
+
+    // Checkout
+    function checkout() {
+      window.location.href = "https://checkout-staging.xendit.co/od/paket21";
+    }
+
+    // Notifikasi modern
+    function showNotification(message) {
+      const notification = document.getElementById("notification");
+      notification.textContent = message;
+      notification.classList.remove("hidden");
+      setTimeout(() => {
+        notification.classList.add("hidden");
+      }, 3000);
     }
   </script>
 </head>
-<body class="bg-gray-100 font-sans text-gray-900">
-  <header class="bg-blue-600 p-6 text-white flex justify-between items-center">
-    <h1 class="text-2xl font-bold"><a href="index.html">HI KIDS STORE</a></h1>
-    <!-- keranjang ats -->
-    <div class="relative">
-      <button onclick="openCart()" class="bg-green-500 text-white px-4 py-2 rounded inline-block hover:bg-green-600">
-        Keranjang (<span id="cartCounter">0</span>)
-      </button>
-    </div>
+
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-cyan-500 p-4 flex justify-between items-center">
+    <a href="/"><img src="img/logo.png" alt="Logo" class="w-24 sm:w-32 md:w-36"></a>
+    <button id="cartButton" onclick="openCart()" class="bg-yellow-400 text-black px-4 py-2 rounded sm:w-auto">
+      Keranjang (<span id="cartCounter">0</span>)
+    </button>
   </header>
 
-  <main class="container mx-auto py-12 px-6">
-    <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">Produk Hampers Bayi</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- 1 -->
-      <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('feb02936-bd3d-4870-a188-d304f2186a08.jpg', 'Parcel Bayi Awal Ceria', 'Paket sederhana yang memberikan perlengkapan dasar untuk bayi baru lahir. Cocok untuk hadiah pertama atau sebagai tambahan untuk orang tua baru.', 'Selimut bayi (katun lembut),Sepatu bayi,Pakaian bayi (1 stel),Mainan bayi lembut,Handuk kecil', 'Rp 100.000 - Rp 250.000')">
-          <img src="img/feb02936-bd3d-4870-a188-d304f2186a08.jpg" alt="Parcel Bayi 1" class="w-full h-full object-cover rounded-md">
-        </div>
-        <div class="flex flex-col flex-grow mt-4">
-          <h3 class="text-xl font-semibold text-blue-600">Parcel Bayi "Awal Ceria"</h3>
-          <p class="text-gray-700 my-2">Paket sederhana yang memberikan perlengkapan dasar untuk bayi baru lahir. Cocok untuk hadiah pertama atau sebagai tambahan untuk orang tua baru.</p>
-          <p class="font-bold text-lg text-gray-800">Rp 100.000 - Rp 250.000</p>
-        </div>
-        <button onclick="addToCart('Parcel Bayi "Awal Ceria"')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-        <a href="https://wa.me/0812345678?text=Hai, saya mau tanya tentang Parcel Bayi 'Awal Ceria'" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
-      </div>
-    
-      <!-- 2 -->
-      <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg', 'Parcel Bayi Cinta Sayang', 'Pakaian bayi yang nyaman dan lembut. Terbuat dari bahan berkualitas tinggi untuk kenyamanan si kecil.', 'Pakaian bayi (3-4 stel),Kaos kaki bayi,Sarung tangan bayi,Bib bayi,Botol atau empeng bayi,Set perawat', 'Rp 50.000 - Rp 120.000')">
-          <img src="img/f6b3ab98-b8ce-4632-9887-f7b5b052c63f.jpg" alt="Set Pakaian Bayi" class="w-full h-full object-cover rounded-md">
-        </div>
-        <div class="flex flex-col flex-grow mt-4">
-          <h3 class="text-xl font-semibold text-blue-600">Parcel Bayi "Cinta Sayang"</h3>
-          <p class="text-gray-700 my-2">Paket lengkap dengan barang-barang penting untuk perawatan dan kenyamanan bayi. Menyediakan berbagai kebutuhan sehari-hari untuk orang tua baru.</p>
-          <p class="font-bold text-lg text-gray-800">Rp 50.000 - Rp 120.000</p>
-        </div>
-        <button onclick="addToCart('Set Pakaian Bayi')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-        <a href="https://wa.me/0812345678?text=Hai, saya mau tanya tentang Set Pakaian Bayi" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
-      </div>
-    
-      <!-- 3 -->
-      <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSpLgR-5dBhaYdHv5S1Apf0JzXkGlqLyN-Yo0P47w2ZOIgSne-qDHnS0cMxgCL_Q3nDxJNqb9X_Riu-NKXFM_0OuzjdAe1bjB_WVIeaCtTJNbYKR6HgDyD3&usqp=CAE', 'Parcel Bayi Bintang Kecil', 'Parcel bayi eksklusif dengan barang-barang premium yang dipilih dengan hati-hati untuk memberikan kenyamanan maksimal pada bayi. Ideal untuk orang tua yang menginginkan yang terbaik untuk buah hati mereka.', 'Pakaian bayi premium (beberapa stel pakaian berkualitas tinggi),Sepatu bayi atau sandal,Set handuk bayi (bambu atau katun organik),Set perawatan bayi (sampo, lotion, minyak bayi),Selimut bayi yang dipersonalisasi,Mainan plush bayi yang lembut,Gendongan bayi atau sling', 'Rp 500.000 - Rp 1.000.000+')">
-          <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSpLgR-5dBhaYdHv5S1Apf0JzXkGlqLyN-Yo0P47w2ZOIgSne-qDHnS0cMxgCL_Q3nDxJNqb9X_Riu-NKXFM_0OuzjdAe1bjB_WVIeaCtTJNbYKR6HgDyD3&usqp=CAE" alt="Parcel Bayi Bintang Kecil" class="w-full h-full object-cover rounded-md">
-        </div>
-        <div class="flex flex-col flex-grow mt-4">
-          <h3 class="text-xl font-semibold text-blue-600">Parcel Bayi "Bintang Kecil"</h3>
-          <p class="text-gray-700 my-2">Parcel bayi eksklusif dengan barang-barang premium yang dipilih dengan hati-hati untuk memberikan kenyamanan maksimal pada bayi. Ideal untuk orang tua yang menginginkan yang terbaik untuk buah hati mereka.</p>
-          <p class="font-bold text-lg text-gray-800">Rp 500.000 - Rp 1.000.000+</p>
-        </div>
-        <button onclick="addToCart('Sleepy Baby Kit')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-        <a href="https://wa.me/0812345678?text=Hai, saya mau tanya tentang Parcel Bayi Bintang Kecil" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
-      </div>
+  <!-- Notifikasi -->
+  <div id="notification" class="fixed top-4 right-4 sm:left-4 sm:right-auto bg-green-500 text-white px-4 py-2 rounded shadow hidden">
+  </div>
 
-<!-- 4 -->
-
-      <div class="bg-white p-6 rounded-lg shadow-md text-center flex flex-col h-full">
-        <div class="h-48 overflow-hidden cursor-pointer" onclick="openModal('https://images.tokopedia.net/img/cache/900/hDjmkQ/2024/5/28/f1b20376-53c7-47e7-be60-ce4d57bea8e2.jpg','Baby Gift Set Kado Baju Sabun Perlengkapan Mandi Bayi','Setiap hampers Free box dan packaging, Free custom kartu ucapan, Free 1 lapis bubble wrap. Toleransi warna dan motif tidak bisa 100% sama karena tergantung motif, kain produksi pabrik dan juga efek lighting. Mohon pengertiannya, terima kasih, semoga cocok dan sehat selalu:)', 'a. 1 Baju newborn bayi lengan pendek unisex (0-6 bulan) <br> b. 1 Kaus Kaki Motif Hewan <br> c. 1 Baby oil 50 ml <br> d. 1 Baby Sabun Cair 50ml <br> e. 1 Baby powder 50 gr <br> f. 1 Shampoo 100 ml', 'Rp 500.000 - Rp 1.000.000+')">
-          <img src="https://images.tokopedia.net/img/cache/900/hDjmkQ/2024/5/28/f1b20376-53c7-47e7-be60-ce4d57bea8e2.jpg" alt="Baby Gift Set Kado Baju Sabun Perlengkapan Mandi Bayi" class="w-full h-full object-cover rounded-md">
-        </div>
-        <div class="flex flex-col flex-grow mt-4">
-          <h3 class="text-xl font-semibold text-blue-600">Baby Gift Set Kado Baju Sabun Perlengkapan Mandi Bayi</h3>
-          <p class="text-gray-700 my-2"></p>
-          <p class="font-bold text-lg text-gray-800">Rp 89.900 - Rp 95.000</p>
-        </div>
-        <button onclick="addToCart('Sleepy Baby Kit')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add to Cart</button>
-        <a href="https://wa.me/0812345678?text=Hai, saya mau tanya tentang Parcel Bayi Bintang Kecil" target="_blank" class="mt-2 text-sm text-blue-600 hover:underline">Tanya via WhatsApp</a>
+ <!-- Produk -->
+<main class="container mx-auto py-6 px-2">
+  <h2 class="text-2xl font-bold mb-4">Produk Terbaru</h2>
+  <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+    <div class="bg-white rounded-lg shadow-md transform hover:scale-105 transition duration-200">
+      <img src="img/cusson.jpg" alt="Produk 1" class="w-full h-auto object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2">paket custom 1</h3>
+        <p class="text-orange-500 font-bold mb-4">Rp 89.000</p>
+        <button onclick="addToCart(1, 'paket custom 1', 89000, this)" 
+                class="bg-orange-500 text-white px-4 py-2 text-sm md:text-lg rounded w-full hover:bg-orange-600 transition">
+          Tambah ke Keranjang
+        </button>
       </div>
     </div>
-  </main>
 
-  <footer class="bg-gray-800 p-6 text-center text-white">
-    <p>&copy; 2024 HI Kids Store. All rights reserved.</p>
+    <div class="bg-white rounded-lg shadow-md transform hover:scale-105 transition duration-200">
+      <img src="img/prod1.webp" alt="Produk 2" class="w-full h-auto object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2">paket 2</h3>
+        <p class="text-orange-500 font-bold mb-4">Rp 80.000</p>
+        <button onclick="addToCart(2, 'paket 2', 80000, this)" 
+                class="bg-orange-500 text-white px-4 py-2 text-sm md:text-lg rounded w-full hover:bg-orange-600 transition">
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md transform hover:scale-105 transition duration-200">
+      <img src="img/cusson.jpg" alt="Produk 3" class="w-full h-auto object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2">paket custom 3</h3>
+        <p class="text-orange-500 font-bold mb-4">Rp 100.000</p>
+        <button onclick="addToCart(3, 'paket custom 3', 100000, this)" 
+                class="bg-orange-500 text-white px-4 py-2 text-sm md:text-lg rounded w-full hover:bg-orange-600 transition">
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-md transform hover:scale-105 transition duration-200">
+      <img src="img/prod1.webp" alt="Produk 4" class="w-full h-auto object-cover rounded-t-lg">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold mb-2">paket 4</h3>
+        <p class="text-orange-500 font-bold mb-4">Rp 95.000</p>
+        <button onclick="addToCart(4, 'paket 4', 95000, this)" 
+                class="bg-orange-500 text-white px-4 py-2 text-sm md:text-lg rounded w-full hover:bg-orange-600 transition">
+          Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+  <!-- Modal Keranjang -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-lg p-6 mx-4 sm:w-3/4 md:w-2/3 lg:w-1/3">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Keranjang Anda</h2>
+      <div id="cartItems" class="mb-6">
+        <!-- Isi keranjang ditampilkan di sini -->
+      </div>
+      <div class="flex justify-between items-center mb-6 border-t pt-4">
+        <span class="text-lg font-bold">Total:</span>
+        <span id="totalAmount" class="text-lg font-bold text-green-600"></span>
+      </div>
+      <div class="flex justify-end space-x-4">
+        <button onclick="closeCart()" class="py-2 px-4 bg-gray-300 text-black rounded hover:bg-gray-400">
+          Tutup
+        </button>
+        <button onclick="checkout()" class="py-2 px-4 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300">
+    <div class="container mx-auto px-6 py-10">
+      <!-- Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+  
+        <!-- Logo and Description (Centered on Mobile) -->
+        <div class="text-center md:text-left">
+          <a href="/"><img src="img/logo.png" alt="Logo" class="w-56 mb-4 mx-auto md:mx-0"></a>
+          <p class="text-sm leading-relaxed">
+            Premium Baby Hampers, Perawatan Setara Merk Ternama, Terjangkau & Ekslusif
+          </p>
+        </div>
+  
+        <!-- Address and Contact (Hidden on Mobile) -->
+        <div class="hidden md:block">
+          <h2 class="font-semibold text-lg mb-3">Kontak Kami</h2>
+          <ul class="space-y-3 text-sm">
+            <li><i class="fas fa-envelope"></i> dokterkecil.disini@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Jl. Soekarno Hatta Jl. Rembuksari No.1 A, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa Timur 65113</li>
+            <li>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d293.7035519218207!2d112.62647266218119!3d-7.938001232745293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1733549588366!5m2!1sid!2sid" 
+                width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Quick Links (Hidden on Mobile) -->
+        <div class="hidden md:block">
+          <h2 class="font-semibold text-lg mb-3">Quick Links</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/" class="hover:text-white">Beranda</a></li>
+            <li><a href="#" class="hover:text-white">Artikel</a></li>
+            <li><a href="store.html" class="hover:text-white">Toko</a></li>
+            <li><a href="contact.html" class="hover:text-white">Kontak</a></li>
+          </ul>
+        </div>
+  
+        <!-- Social Media (Centered on Mobile) -->
+        <div class="text-center md:text-left">
+          <h2 class="font-semibold text-lg mb-3">Ikuti Kami</h2>
+          <ul class="flex space-x-4 justify-center md:justify-start">
+            <li><a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </footer>
-
-  <!-- mdl -->
-  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50" onclick="closeModal(event)">
-    <div class="relative bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl flex" onclick="event.stopPropagation()">
-      <!-- gambar -->
-      <div class="w-1/3">
-        <img id="modalImage" src="" alt="Enlarged Image" class="max-w-full max-h-96 object-contain p-4 bg-white rounded shadow-lg" />
-      </div>
-      
-      <!-- deskripsi -->
-      <div class="w-2/3 pl-6">
-        <h3 id="modalProductTitle" class="text-2xl font-semibold text-blue-600 mb-4"></h3>
-        <p id="modalProductDescription" class="text-gray-700 mb-4"></p>
-        <p class="text-gray-700 mb-4">Isi Parcel:</p>
-        <p id="modalProductList" class="text-gray-700 mb-4"></p>
-        <p id="modalProductPrice" class="font-bold text-lg text-gray-800 mb-6"></p>
-        <button class="absolute top-4 right-4 text-white text-2xl" onclick="closeModal(event)">&times;</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- keranjang mdl -->
-  <div id="cartModal" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center hidden z-50 p-6">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-full md:w-1/2">
-      <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
-      <ul id="cartItems" class="space-y-4"></ul>
-      <div class="mt-6 flex justify-between">
-        <button onclick="closeCart()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Close</button>
-        <a id="waOrderLink" href="#" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded inline-block hover:bg-green-600 pointer-events-none opacity-50">Order via WhatsApp</a>
-      </div>
-    </div>
-  </div>
-
 </body>
+
 </html>
