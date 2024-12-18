@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artikel - Baca Artikel</title>
+  <meta property="og:title" content="Artikel - Baca Artikel" />
+  <meta property="og:description" content="Artikel yang dipilih" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="artikel.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="HI KIDS" />
+  <meta property="og:locale" content="id_ID" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="bg-gray-200 py-4 mb-6 rounded-lg">
+    <nav class="container mx-auto px-4 items-center text-xs lg:text-base text-gray-600 space-x-4">
+      <a href="/" class="hover:underline">Beranda</a>
+      <span class="mx-2">/</span>
+      <a href="/#" class="hover:underline">Artikel</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-6 max-w-7xl">
+    <div class="flex flex-col lg:flex-row">
+      <!-- Artikel yang Ditampilkan -->
+      <article class="lg:w-3/4 w-full bg-white shadow-md rounded-lg p-6 mb-6 lg:mb-0" id="article-content">
+        <h1 class="text-2xl lg:text-4xl font-bold text-gray-800 mb-4" id="article-title"></h1>
+        <div class="flex items-center text-sm text-gray-600 mb-6">
+          <span class="mr-4">Pertumbuhan</span>
+          <span class="mr-4">6 menit</span>
+          <span>04 Desember 2024</span>
+        </div>
+        <img src="" alt="Gambar Artikel" class="rounded-lg mb-6 w-full object-cover" id="article-image">
+        <p class="text-gray-900 text-lg mb-6" id="article-text"></p>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Hi Kids. Semua Hak Dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript untuk Menampilkan Artikel -->
+  <script>
+    // Fungsi untuk mendapatkan parameter artikel dari URL
+    function getUrlParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Menampilkan artikel sesuai parameter URL
+    const artikelId = getUrlParameter('artikel');
+    
+    const articles = {
+      1: {
+        title: "Anak Mudah Tantrum Tanda Emosi Tak Stabil, Benarkah?",
+        image: "img/tantrum.webp",
+        content: "Anak usia di bawah lima tahun umumnya mengalami tantrum, yaitu kondisi ketika ia marah, mengamuk, dan menangis kencang. Apakah itu tanda emosinya tidak stabil? Belum tentu. Sebab, tantrum adalah hal yang normal, dan merupakan bagian dari proses perkembangan anak."
+      },
+      2: {
+        title: "Cara Mengelola Stres Anak",
+        image: "img/stress-anak.jpg",
+        content: "Stres bisa memengaruhi perkembangan anak, yuk ketahui cara mengelola stres pada anak."
+      },
+      3: {
+        title: "Pentingnya Tidur Berkualitas bagi Anak",
+        image: "img/tidur-anak.jpg",
+        content: "Tidur yang cukup sangat penting untuk perkembangan anak, berikut manfaat tidur yang berkualitas."
+      }
+    };
+
+    // Menampilkan konten berdasarkan ID artikel
+    if (artikelId && articles[artikelId]) {
+      document.getElementById("article-title").textContent = articles[artikelId].title;
+      document.getElementById("article-image").src = articles[artikelId].image;
+      document.getElementById("article-text").textContent = articles[artikelId].content;
+    }
+  </script>
+
+</body>
+</html>

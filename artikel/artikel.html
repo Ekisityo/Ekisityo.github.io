@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anak Mudah Tantrum Tanda Emosi Tak Stabil, Benarkah?</title>
+  <meta property="og:title" content="Anak Mudah Tantrum Tanda Emosi Tak Stabil, Benarkah?" />
+  <meta property="og:description" content="Anak Mudah Tantrum Tanda Emosi Tak Stabil, Benarkah?" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="/artikel2.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="HI KIDS" />
+  <meta property="og:locale" content="id_ID" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-6 max-w-7xl">
+    <!-- Header Di Dalam Main -->
+    <header class="bg-gray-200 py-4 mb-6 rounded-lg">
+      <nav class="container mx-auto px-4 items-center text-xs lg:text-base text-gray-600 space-x-4">
+        <a href="/index.html" class="hover:underline">Beranda</a>
+        <span class="mx-2">/</span>
+        <a href="/artikel.html" class="hover:underline">Artikel</a>
+        <span class="mx-2">/</span>
+        <span class="mx-2" id="article-title-header"></span> <!-- Title will be shown here -->
+      </nav>
+    </header>
+  
+    <div class="flex flex-col lg:flex-row">
+      <!-- Artikel -->
+      <article class="lg:w-3/4 w-full bg-white shadow-md rounded-lg p-6 mb-6 lg:mb-0" id="article-content">
+        <h1 class="text-2xl lg:text-4xl font-bold text-gray-800 mb-4" id="article-title"></h1>
+        <div class="flex items-center text-sm text-gray-600 mb-6">
+          <span id="article-date" class="mr-4"></span>
+          <span class="mr-4">10 menit</span>
+          <div id="article-tags" class="flex gap-2"></div>
+        </div>
+        <img src="" alt="Gambar Artikel" class="rounded-lg mb-6 w-full object-cover" id="article-image">
+        <div id="article-text" class="text-gray-900 text-lg mb-6"></div>
+      </article>
+  
+      <!-- Sidebar -->
+      <aside class="lg:w-1/4 lg:ml-6 w-full">
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Berlangganan Artikel</h3>
+          <input type="email" placeholder="Ketik email" class="w-full p-3 border border-gray-300 rounded mb-2">
+          <button class="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600 transition">
+            Berlangganan
+          </button>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-6">
+          <h3 class="text-lg font-semibold text-gray-800 mb-4">Topik Terkini</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-200 text-sm py-1 px-3 rounded">Coronavirus</span>
+            <span class="bg-gray-200 text-sm py-1 px-3 rounded">Diabetes</span>
+            <span class="bg-gray-200 text-sm py-1 px-3 rounded">Jantung</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Hi Kids. Semua Hak Dilindungi.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Fungsi untuk mendapatkan parameter artikel dari URL
+    function getUrlParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Menampilkan artikel sesuai parameter URL
+    const artikelId = getUrlParameter('artikel');
+    
+    const articles = {
+      1: {
+        title: "Ini Gangguan Pertumbuhan yang Terjadi jika Anak Kurang Tidur",
+        image: "img/bayitidur.jpg",
+        content: `
+          <h1>Anak Mudah Tantrum Tanda Emosi Tak Stabil, Benarkah?</h1>
+          <p>Ada fakta menarik yang mungkin belum banyak diketahui para orang tua, yaitu tidur ternyata berperan penting dalam mendukung pertumbuhan anak secara optimal. Tapi, gimana sih masalah tidur bisa memengaruhi pertumbuhan pada anak dan gangguan tidur apa saja yang bisa bikin anak lebih rentan tumbuh pendek atau mengalami kenaikan berat badan berlebih?</p>
+        `,
+        date: "04 Desember 2024",
+        tags: ["Pertumbuhan", "Anak", "Tantrum"] 
+      },
+      2: {
+        title: "Cara Mengelola Stres Anak",
+        image: "img/bermain.jpg",
+        content: `
+          <h1>Cara Mengelola Stres Anak</h1>
+          <p>Stres bisa memengaruhi perkembangan anak. Oleh karena itu, penting bagi orang tua untuk mengenali tanda-tanda stres pada anak dan mencari cara yang efektif untuk mengelolanya. Stres bisa disebabkan oleh berbagai faktor, seperti tekanan sekolah, masalah keluarga, atau masalah dengan teman-teman.</p>
+          <p>Berikut beberapa cara untuk mengelola stres pada anak:</p>
+          <ul>
+            <li>Mengenali tanda-tanda stres pada anak sejak dini.</li>
+            <li>Menciptakan lingkungan yang aman dan nyaman di rumah.</li>
+            <li>Melibatkan anak dalam kegiatan yang dapat membantu meredakan stres, seperti olahraga, meditasi, atau bermain bersama keluarga.</li>
+          </ul>
+        `,
+        date: "05 Desember 2024",
+        tags: ["Stres", "Kesehatan Anak", "Tips"]
+      },
+      3: {
+        title: "Pentingnya Tidur Berkualitas bagi Anak",
+        image: "img/bayitidur.jpg",
+        content: `
+          <h1>Pentingnya Tidur Berkualitas bagi Anak</h1>
+          <p>Tidur yang cukup sangat penting untuk pertumbuhan dan perkembangan anak. Tidur mendukung pemulihan fisik dan mental, serta meningkatkan daya ingat dan kemampuan belajar anak. Masalah tidur yang tidak teratasi bisa menyebabkan gangguan pertumbuhan, penurunan daya imun, dan masalah perilaku.</p>
+          <p>Beberapa hal yang perlu diperhatikan orang tua untuk memastikan anak tidur cukup dan berkualitas:</p>
+          <ul>
+            <li>Menciptakan rutinitas tidur yang konsisten setiap malam.</li>
+            <li>Memastikan kamar tidur anak nyaman dan bebas dari gangguan.</li>
+            <li>Menghindari konsumsi makanan atau minuman berkafein menjelang waktu tidur.</li>
+          </ul>
+        `,
+        date: "06 Desember 2024",
+        tags: ["Tidur Anak", "Pertumbuhan", "Kesehatan"]
+      }
+    };
+
+    // Menampilkan konten artikel berdasarkan ID artikel yang dipilih
+    if (artikelId && articles[artikelId]) {
+      const article = articles[artikelId];
+
+      // Update title, image, content, date, and tags
+      document.getElementById("article-title").textContent = article.title;
+      document.getElementById("article-image").src = article.image;
+      document.getElementById("article-text").innerHTML = article.content;
+      document.getElementById("article-date").textContent = article.date;
+      
+      // Update tags
+      const tagsContainer = document.getElementById("article-tags");
+      article.tags.forEach(tag => {
+        const tagElement = document.createElement("span");
+        tagElement.classList.add("bg-gray-200", "text-sm", "py-1", "px-3", "rounded");
+        tagElement.textContent = tag;
+        tagsContainer.appendChild(tagElement);
+      });
+
+      // Set the article title in the header
+      document.getElementById("article-title-header").textContent = article.title;
+
+    } else {
+      // Jika artikel tidak ditemukan
+      document.getElementById("article-title").textContent = "Artikel Tidak Ditemukan";
+      document.getElementById("article-content").textContent = "Artikel yang Anda cari tidak tersedia.";
+    }
+  </script>
+</body>
+</html>
