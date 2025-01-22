@@ -1,369 +1,305 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HI KIDS - Beranda</title>
-  <link rel="icon" href="img/logo.png" type="image/x-icon">
-  <meta property="og:title" content="HI KIDS OFFICIAL" />
-  <meta property="og:description" content="Dapatkan perawatan medis terbaik untuk anak-anak Anda. Dokter anak berpengalaman siap memberikan layanan kesehatan dengan pendekatan yang ramah dan profesional." />
-  <meta property="og:image" content="" />
-  <meta property="og:url" content="https://ekisityo.github.io/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="HI KIDS" />
-  <meta property="og:locale" content="id_ID" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="/comWa/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body{
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-    .hero-bg {
-      background-image: url('/img/bg-hero-min.jpg'); 
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-  </style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TOKOKITA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body class="font-poppins antialiased text-gray-900">
-
-  <!-- Navbar -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent w-full transition-all duration-300 ease-in-out">
-    <nav class="container mx-auto flex items-center justify-between p-2">
-      <div class="flex items-center">
-        <!-- Logo -->
-        <img src="img/logo.png" alt="Logo" class="w-24 md:w-36">
-      </div>
-      
-      <!-- Menu Button for Mobile -->
-      <button id="menu-button" class="p-4 text-white text-xl bg-transparent rounded-md md:hidden">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <!-- Desktop Navbar Links -->
-      <div class="hidden md:flex space-x-6 font-semibold">
-        <a href="/" class="text-lg text-white hover:text-teal-700">Beranda</a>
-        <a href="#articles" class="text-lg text-white hover:text-teal-700">Artikel</a>
-        <a href="store.html" class="text-lg text-white hover:text-teal-700">Toko</a>
-        <a href="comingsoon.html" class="text-lg text-white hover:text-teal-700">Apps</a>
-        <a href="contact.html" class="text-lg text-white hover:text-teal-700">Kontak</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- Offcanvas Navbar (Mobile only) -->
-  <div id="offcanvas" class="fixed inset-0 bg-gray-800 bg-opacity-50 z-50 hidden">
-    <div class="absolute top-0 right-0 h-full bg-white w-64 transform translate-x-full transition-transform duration-300 ease-in-out" id="offcanvas-content">
-      <div class="flex justify-between p-4">
-        <span class="text-xl font-semibold">Menu</span>
-        <button id="close-button" class="text-xl">&times;</button>
-      </div>
-      <ul class="p-4 space-y-4">
-        <li><a href="/" class="block text-lg text-gray-700 hover:text-teal-700">Beranda</a></li>
-        <li><a href="#articles" class="block text-lg text-gray-700 hover:text-teal-700">Artikel</a></li>
-        <li><a href="store.html" class="block text-lg text-gray-700 hover:text-teal-700">Toko</a></li>
-        <li><a href="comingsoon.html" class="block text-lg text-gray-700 hover:text-teal-700">Apps</a></li>
-        <li><a href="contact.html" class="block text-lg text-gray-700 hover:text-teal-700">Kontak</a></li>
-      </ul>
-    </div>
-  </div>
-
-
-  <!-- Hero Section -->
-  <section class=" hero-bg h-screen flex items-center text-white relative">
-    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-    <div class="pt-60 relative z-10 flex justify-start items-center px-4 md:px-16">
-      <div class="text-left max-w-xl">
-        <h1 class="md:text-5xl text-3xl font-bold mb-4">Langkah Kecil Mencegah Dampak Besar</h1>
-        <p class="mb-8 md:text-lg text-sm font-semibold">Kami hadir untuk mendukung perjalanan dalam mengatasi masalah Kesehatan dan mencapai kesehatan bersama</p>
-        <a href="#" class="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-700">Mulai Sekarang</a>
-      </div>
-    </div>
-  </section>
-      
-
-  <!-- Features Section -->
-  <section class="bg-white py-16">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold text-gray-900 mb-8">Kenali Layanan Kami untuk Anak Anda</h2>
-      <p class="text-gray-700 text-lg mb-8">Kami menawarkan berbagai layanan kesehatan khusus untuk anak-anak, mulai dari konsultasi medis, pemeriksaan rutin, hingga layanan darurat. Prioritas kami adalah memberikan perawatan yang terbaik dengan pendekatan yang ramah dan penuh perhatian.</p>
-  
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="p-6 bg-blue-50 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300">
-          <h3 class="text-xl font-semibold text-blue-600">Konsultasi Dokter Anak</h3>
-          <p class="text-gray-700 mt-2">Dapatkan konsultasi langsung dengan dokter anak berpengalaman untuk semua masalah kesehatan anak Anda. Kami siap membantu kapan saja.</p>
+  <body>
+    <!-- head navbar -->
+    <header class="header bg-dark text-light sticky-top">
+        <!-- Header Top -->
+        <div class="py-2 border-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="d-flex justify-content-start">
+                            <p class="my-2">
+                                Pengiriman gratis, garansi pengembalian atau pengembalian uang dalam 30 hari.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="d-flex justify-content-end">
+                            <div class="d-flex align-items-center">
+                                <a href="#" class="me-3 text-white text-decoration-none">Daftar</a>
+                                <a href="#" class="text-white text-decoration-none">Pertanyaan</a>
+                            </div>
+                            <div class="dropdown ms-3">
+                                <button class="btn btn-link dropdown-toggle text-white text-decoration-none" type="button" id="currencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    IDR <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
+                                    <li><a class="dropdown-item" href="#">IDR</a></li>
+                                    <li><a class="dropdown-item" href="#">EUR</a></li>
+                                    <li><a class="dropdown-item" href="#">GBP</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-  
-        <div class="p-6 bg-blue-50 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300">
-          <h3 class="text-xl font-semibold text-blue-600">Pemeriksaan Kesehatan Rutin</h3>
-          <p class="text-gray-700 mt-2">Pemeriksaan kesehatan rutin untuk memastikan tumbuh kembang anak berjalan dengan baik dan mendeteksi masalah kesehatan sejak dini.</p>
-        </div>
-  
-        <div class="p-6 bg-blue-50 rounded-lg shadow hover:shadow-lg hover:scale-105 transition duration-300">
-          <h3 class="text-xl font-semibold text-blue-600">Vaksinasi Anak</h3>
-          <p class="text-gray-700 mt-2">Lindungi anak Anda dari penyakit berbahaya dengan vaksinasi yang terjadwal sesuai dengan pedoman medis terkini.</p>
-        </div>
-      </div>
-  
-      <p class="text-gray-700 text-lg mt-8">Kami percaya setiap anak berhak mendapatkan perawatan yang terbaik. Dengan pengalaman dan perhatian kami, Anda bisa merasa tenang bahwa buah hati Anda berada di tangan yang tepat.</p>
-      <a href="/about.html" class="text-white bg-blue-500 hover:bg-blue-600 hover:scale-105 transition-all duration-300 ease-in-out rounded-full px-6 py-3 mt-6 inline-block font-semibold text-sm sm:text-base md:text-lg">Kenali Kami Lebih Jauh <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </section>
-
-  <!-- artikel -->
-  <section id="articles" class="py-16 bg-white">
-    <div class="container mx-auto px-6 text-center">
-      <!-- Judul Halaman Artikel -->
-      <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-8">Artikel Terbaru</h2>
-      <p class="text-base sm:text-lg text-gray-700 mb-12">
-        Temukan berbagai artikel tentang kesehatan anak, tips parenting, dan informasi medis yang bermanfaat bagi Anda dan buah hati.
-      </p>
-  
-      <!-- Daftar Artikel -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        <!-- Artikel 1 -->
-        <div class="bg-blue-50 rounded-lg shadow-md hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 overflow-hidden">
-          <img src="tahuayam.jpg" alt="Resep MPASI: Tahu Ayam" class="w-full h-56 object-cover aspect-ratio-3/2">
-          <div class="p-6">
-            <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Milestone & Red Flag Tumbuh Kembang di Tahun Pertama si Kecil</h3>
-            <p class="text-sm sm:text-base text-gray-700 mb-4">
-              Tumbuh Kembang
-            </p>
-            <a href="artikelbaca.html" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
-          </div>
-        </div>
-  
-        <!-- Artikel 2 -->
-        <div class="bg-blue-50 rounded-lg shadow-md hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 overflow-hidden">
-          <img src="img/tantrum.webp" alt="Artikel 2" class="w-full h-56 object-cover">
-          <div class="p-6">
-            <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Anak Mudah Tantrum Tanda Emosi Tak Stabil, Benarkah?</h3>
-            <p class="text-sm sm:text-base text-gray-700 mb-4">
-              Tantrum umumnya terjadi ketika anak memiliki dua emosi yang kuat, yaitu kemarahan dan kesedihan.
-            </p>
-            <a href="/artikel/Mengatasi-Masalah-Tidur-pada-Anak.html" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
-          </div>
-        </div>
-  
-        <!-- Artikel 3 -->
-        <div class="bg-blue-50 rounded-lg shadow-md hover:shadow-lg hover:translate-y-[-10px] transition-transform duration-300 overflow-hidden">
-          <img src="https://via.placeholder.com/400x250" alt="Artikel 3" class="w-full h-56 object-cover">
-          <div class="p-6">
-            <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Mengatasi Masalah Tidur pada Anak</h3>
-            <p class="text-sm sm:text-base text-gray-700 mb-4">
-              Masalah tidur bisa menjadi tantangan bagi banyak orang tua. Temukan tips dan trik untuk membantu anak tidur lebih nyenyak setiap malam.
-            </p>
-            <a href="/artikel.html" class="text-blue-600 hover:underline">Baca Selengkapnya</a>
-          </div>
-        </div>
-  
-      </div>
-
-      <a href="artikel.html" class="text-white bg-blue-500 hover:bg-blue-600 hover:scale-105 transition-all duration-300 ease-in-out rounded-full px-6 py-3 mt-6 inline-block font-semibold text-sm sm:text-base md:text-lg">Lihat Artikel Lainnya <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </section>
-
-
-  <!-- Call to Action Section -->
-  <section id="cta" class="bg-blue-600 py-16">
-    <div class="container mx-auto px-6 text-center text-white">
-      <h2 class="text-xl md:text-3xl font-bold mb-4">Siap Memberikan Perawatan Terbaik untuk Anak Anda?</h2>
-      <p class="text-base md:text-lg mb-8">Daftarkan anak Anda hari ini dan jadwalkan konsultasi dengan dokter anak berpengalaman untuk kesehatan yang optimal.</p>
-      <a href="#jadwal-konsultasi" class="bg-white text-blue-600 px-6 py-3 rounded-lg shadow-lg hover:bg-blue-50 transition duration-300">Jadwalkan Konsultasi</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300">
-    <div class="container mx-auto px-6 py-10">
-      <!-- Footer Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
-  
-        <!-- Logo and Description (Centered on Mobile) -->
-        <div class="text-center md:text-left">
-          <img src="img/logo.png" alt="Logo" class="w-56 mb-4 mx-auto md:mx-0">
-          <p class="text-sm leading-relaxed">
-            Premium Baby Hampers, Perawatan Setara Merk Ternama, Terjangkau & Ekslusif
-          </p>
-        </div>
-  
-        <!-- Address and Contact (Hidden on Mobile) -->
-        <div class="hidden md:block">
-          <h2 class="font-semibold text-lg mb-3">Kontak Kami</h2>
-          <ul class="space-y-3 text-sm">
-            <li><i class="fas fa-envelope"></i> dokterkecil.disini@gmail.com</li>
-            <li><i class="fas fa-map-marker-alt"></i> Jl. Soekarno Hatta Jl. Rembuksari No.1 A, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa Timur 65113</li>
-            <li>
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d293.7035519218207!2d112.62647266218119!3d-7.938001232745293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1733549588366!5m2!1sid!2sid" 
-                width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </li>
-          </ul>
-        </div>
-  
-        <!-- Quick Links (Hidden on Mobile) -->
-        <div class="hidden md:block">
-          <h2 class="font-semibold text-lg mb-3">Quick Links</h2>
-          <ul class="space-y-2 text-sm">
-            <li><a href="/" class="hover:text-white">Beranda</a></li>
-            <li><a href="#" class="hover:text-white">Artikel</a></li>
-            <li><a href="store.html" class="hover:text-white">Toko</a></li>
-            <li><a href="contact.html" class="hover:text-white">Kontak</a></li>
-          </ul>
-        </div>
-  
-        <!-- Social Media (Centered on Mobile) -->
-        <div class="text-center md:text-left">
-          <h2 class="font-semibold text-lg mb-3">Ikuti Kami</h2>
-          <div class="flex items-center justify-center md:justify-center space-x-6 text-2xl ">
-            <!-- Facebook -->
-            <!-- <a href="https://facebook.com/" class="text-gray-300 hover:text-white">
-              <i class="fab fa-facebook fa-lg"></i>
-            </a>  -->
-            
-            <!-- Shopee -->
-            <a href="https://shopee.co.id/haikidsstore" class="hover:opacity-80 flex items-center">
-              <img src="img/shp.png" alt="Shopee" class="w-16">
-            </a>
-            
-            <!-- Instagram -->
-            <a href="https://www.instagram.com/hikidss.id?igsh=Zm0xazduMHMxMHpz" class="text-gray-300 hover:text-white">
-              <i class="fab fa-instagram fa-lg"></i>
-            </a>
-            
-            <!-- TikTok -->
-            <a href="https://www.tiktok.com/@hikids.ofc?_t=8qylvv6qElE&_r=1" class="text-gray-300 hover:text-white">
-              <i class="fa-brands fa-tiktok fa-lg"></i>
-            </a>
-          </div>
-        </div>        
-  
-      </div>
-  
-      <!-- Copyright -->
-      <div class="mt-10 border-t border-gray-700 pt-6 text-center">
-        <p class="text-sm">&copy; 2024 HI KIDS OFFICIAL. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!--  -->
-  <input class='chatMenu hidden' id='offchatMenu' type='checkbox'/>
-  <label class='chatButton' for='offchatMenu'>
-    <svg class='svg-1' viewBox='0 0 32 32'>
-      <g>
-        <path d='M16,2A13,13,0,0,0,8,25.23V29a1,1,0,0,0,.51.87A1,1,0,0,0,9,30a1,1,0,0,0,.51-.14l3.65-2.19A12.64,12.64,0,0,0,16,28,13,13,0,0,0,16,2Zm0,24a11.13,11.13,0,0,1-2.76-.36,1,1,0,0,0-.76.11L10,27.23v-2.5a1,1,0,0,0-.42-.81A11,11,0,1,1,16,26Z'></path>
-        <path d='M19.86,15.18a1.9,1.9,0,0,0-2.64,0l-.09.09-1.4-1.4.09-.09a1.86,1.86,0,0,0,0-2.64L14.23,9.55a1.9,1.9,0,0,0-2.64,0l-.8.79a3.56,3.56,0,0,0-.5,3.76,10.64,10.64,0,0,0,2.62,4A8.7,8.7,0,0,0,18.56,21a2.92,2.92,0,0,0,2.1-.79l.79-.8a1.86,1.86,0,0,0,0-2.64Zm-.62,3.61c-.57.58-2.78,0-4.92-2.11a8.88,8.88,0,0,1-2.13-3.21c-.26-.79-.25-1.44,0-1.71l.7-.7,1.4,1.4-.7.7a1,1,0,0,0,0,1.41l2.82,2.82a1,1,0,0,0,1.41,0l.7-.7,1.4,1.4Z'></path>
-      </g>
-    </svg>
-    <svg class='svg-2' viewBox='0 0 512 512'>
-      <path d='M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3L233.4 256l-68.2 68.2c-6.2 6.2-6.2 16.4 0 22.6 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z'></path>
-    </svg>
-  </label>
-  <div class='chatBox'>
-      <div class='chatContent'>
-        <div class='chatHeader'>
-          <img src='img/logo.png' alt="HAIKIDS LOGO"/>
-          <div class='chatTitle'>HAI KIDS <span>Kami Akan Segera Merespon</span></div>
-        </div>
-        <div class='chatText'>
-          <span>Halo, Apa Ada Yang Bisa Kami Bantu?</span>
-          <span class='typing'>...</span>
-        </div>
-      </div>
-      <div class='chatStart'><input type='text' id='chatInput' placeholder='Tulis Pesan'/>
-      <a href='javascript:void;' id='send-it'>Kirim</a>
-      </div>
-  </div>
-  <!--  -->
-
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/comWa/javascript.js"></script>
-  
-  <script>
-    // JavaScript untuk menambahkan perubahan warna pada navbar saat scroll
-    const navbar = document.getElementById('navbar');
-    const menuButton = document.getElementById('menu-button');
-    const offcanvas = document.getElementById('offcanvas');
-    const closeButton = document.getElementById('close-button');
-    const offcanvasContent = document.getElementById('offcanvas-content');
-    const navbarLinks = navbar.getElementsByTagName('a');
-    const navbarbtn = document.getElementById('menu-button');
     
-    // Show offcanvas on mobile
-    menuButton.addEventListener('click', () => {
-      offcanvas.classList.remove('hidden');
-      setTimeout(() => {
-        offcanvasContent.classList.remove('translate-x-full');
-      }, 10);
-    });
+        <!-- Main Header -->
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-lg-3 col-md-3">
+                    <div class="m-3">
+                        <a href="./index.html" class="text-white text-decoration-none">
+                            <!-- <img src="img/logo.png" alt="Logo" class="img-fluid"> -->
+                            <h2>TOKOKITA</h2>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Navigation Menu -->
+                <div class="col-lg-6 col-md-6">
+                    <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                        <ul class="navbar-nav mx-auto my-3">
+                            <li class="nav-item active"><a class="nav-link active" href="./index.html">Beranda</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./toko.html">Toko</a></li>
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pages
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                                    <li><a class="dropdown-item" href="./about.html">About Us</a></li>
+                                    <li><a class="dropdown-item" href="./shop-details.html">Shop Details</a></li>
+                                    <li><a class="dropdown-item" href="./shopping-cart.html">Shopping Cart</a></li>
+                                    <li><a class="dropdown-item" href="./checkout.html">Check Out</a></li>
+                                    <li><a class="dropdown-item" href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li> -->
+                            <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./contact.html">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+    
+                <!-- Header Icons and Cart -->
+                <div class="col-lg-3 col-md-3 my-4">
+                    <div class="d-flex justify-content-end align-items-center text-white">
+                        <a href="#" class="me-3 text-white text-decoration-none"><i class="bi bi-search"></i></a>
+                        <a href="#" class="me-3 text-white text-decoration-none"><i class="bi bi-cart4"></i> <span>0</span></a>
+                        <div class="price">IDR 0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hamburger Icon (for mobile menu) -->
+            <div class="canvas__open d-lg-none">
+                <i class="bi bi-list"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- promo -->
+    <section class="categories py-5" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size:cover; background-position: center;">
+        <div class="container">
+            <div class="row text-white">
+                <!-- Column 1: Category Text -->
+                <div class="col-lg-3">
+                    <div class="categories__text">
+                        <h2>Sepatu Nike <br> <span>Koleksi Sepatu</span> <br> Aksesoris</h2>
+                    </div>
+                </div>
+                <!-- Column 2: Hot Deal -->
+                <div class="col-lg-5">
+                    <div class="position-relative">
+                        <!-- <img src="img/product-sale.png" alt="Sale" class="img-fluid"> -->
+                        <div class="badge position-absolute top-0 start-0 p-3 bg-danger rounded-pill text-white border">
+                            <span>Diskon Untuk</span>
+                            <h5>Rp1.899.000</h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 3: Countdown and Deal of the Week -->
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="categories__deal__countdown">
+                        <span>Penawaran Minggu Ini</span>
+                    <h2>Nike Air Max 270</h2> <!-- Model sepatu Nike -->
+                    <div class="d-flex">
+                        <div class="cd-item mx-2 text-center">
+                            <span class="d-block" id="days">30</span>
+                            <p>Hari</p>
+                        </div>
+                        <div class="cd-item mx-2 text-center">
+                            <span class="d-block" id="hours">19</span>
+                            <p>Jam</p>
+                        </div>
+                        <div class="cd-item mx-2 text-center">
+                            <span class="d-block" id="minutes">56</span>
+                            <p>Menit</p>
+                        </div>
+                        <div class="cd-item mx-2 text-center">
+                            <span class="d-block" id="seconds">32</span>
+                            <p>Detik</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-success mt-3">Belanja Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- produk -->
+    <section class="product spad py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <ul class="list-unstyled d-flex justify-content-start">
+                        <li class="active me-3 btn" data-filter="*">Produk Terlaris</li>
+                        <li class="me-3 btn" data-filter=".new-arrivals">Produk Baru</li>
+                        <li class="me-3 btn" data-filter=".hot-sales">Diskon Besar</li>
+                    </ul>
+                </div>                
+            </div>
+            <div class="row">
+                <!-- Produk Baru -->
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                    <div class="card">
+                        <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 250px; background-size: cover; background-position: center;">
+                            <span class="badge bg-primary position-absolute top-0 end-0 m-2">Baru</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">NIKE PINK</h6>
+                            <a href="#" class="btn btn-primary mb-2"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+                            <div class="d-flex justify-content-center text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h5 class="card-text">IDR 1.000.000</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produk Diskon -->
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                    <div class="card">
+                        <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1554735490-5974588cbc4f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 250px; background-size: cover; background-position: center;">
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">ADIDAS 350</h6>
+                            <a href="#" class="btn btn-primary mb-2"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+                            <div class="d-flex justify-content-center text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h5 class="card-text">IDR 556.00</h5>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produk Sale -->
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                    <div class="card">
+                        <div class="card-img-top" style="background-image: url('https://images.unsplash.com/photo-1463100099107-aa0980c362e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); height: 250px; background-size: cover; background-position: center;">
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">Diskon</span>
+                        </div>
+                        <div class="card-body text-center">
+                            <h6 class="card-title">Converse</h6>
+                            <a href="#" class="btn btn-primary mb-2"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+                            <div class="d-flex justify-content-center text-warning">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h5 class="card-text">IDR 879.000</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
-    // Close offcanvas on mobile
-    closeButton.addEventListener('click', () => {
-      offcanvasContent.classList.add('translate-x-full');
-      setTimeout(() => {
-        offcanvas.classList.add('hidden');
-      }, 300);
-    });
-
-    // Optional: Close offcanvas if clicked outside
-    offcanvas.addEventListener('click', (e) => {
-      if (e.target === offcanvas) {
-        closeButton.click();
-      }
-    });
-
-    // Scroll event to apply blur effect on navbar when scrolling
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 0) {
-        navbar.classList.add('backdrop-blur-lg', 'bg-transparent', 'shadow-2xl');
-
-        for (let i = 0; i < navbarLinks.length; i++) {
-          navbarLinks[i].classList.remove('text-white');
-          navbarLinks[i].classList.add('text-teal-500');
-        }
-
-        navbarbtn.classList.remove('text-white');
-        navbarbtn.classList.add('text-teal-500');
-      } else {
-        navbar.classList.remove('backdrop-blur-lg', 'bg-transparent', 'shadow-2xl');
-
-        for (let i = 0; i < navbarLinks.length; i++) {
-          navbarLinks[i].classList.remove('text-teal-500');
-          navbarLinks[i].classList.add('text-white');
-        }
-
-        navbarbtn.classList.remove('text-teal-500');
-        navbarbtn.classList.add('text-white');
-      }
-    });
-
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault(); // Mencegah perilaku default
-
-        const targetElement = document.querySelector(this.getAttribute('href'));
-
-        // Melakukan scroll ke elemen yang dituju dengan efek smooth
-        targetElement.scrollIntoView({
-          behavior: 'smooth',  // Scroll dengan efek smooth
-          block: 'start'       // Tempatkan elemen di bagian atas viewport
-        });
-      });
-    });
-  </script>
-
-</body>
+    <!-- footer -->
+    <footer class="footer py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <!-- Bagian Tentang Kami -->
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                    <div class="footer__about">
+                        <div class="footer__logo mb-3">
+                            <a href="#" class="text-white text-decoration-none" class="text-white text-decoration-none">
+                                <h2>TOKOKITA</h2>
+                                <!-- <img src="img/footer-logo.png" alt="Logo" class="img-fluid"> -->
+                            </a>
+                        </div>
+                        <p>Pelanggan adalah inti dari model bisnis unik kami, yang mencakup desain.</p>
+                        <a href="#" class="text-white text-decoration-none"><img src="pembayaran.png" alt="Metode Pembayaran" class="img-fluid"></a>
+                    </div>
+                </div>
+    
+                <!-- Bagian Belanja -->
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6 mb-4">
+                    <div class="footer__widget">
+                        <h6>Belanja</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Toko Pakaian</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Sepatu Terbaru</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Aksesoris</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Diskon</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Bagian Dukungan Pelanggan -->
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <div class="footer__widget">
+                        <h6>Dukungan Pelanggan</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Hubungi Kami</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Metode Pembayaran</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Pengiriman</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Pengembalian &amp; Penukaran</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Bagian Newsletter -->
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6 mb-4">
+                    <div class="footer__widget">
+                        <h6>Newsletter</h6>
+                        <div class="footer__newslatter">
+                            <p>Jadilah yang pertama tahu tentang produk baru, katalog, diskon &amp; promo!</p>
+                            <form action="#" method="post">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Email Anda" aria-label="Email Anda" required>
+                                    <button class="btn btn-primary" type="submit"><i class="bi bi-envelope"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bagian Hak Cipta Footer -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="footer__copyright__text">
+                        <p class="mb-0">Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
 </html>

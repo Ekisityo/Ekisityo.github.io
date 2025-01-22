@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TOKOKITA - Toko</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      .product-image {
+        object-fit: cover; /* Menjaga proporsi gambar */
+        height: 300px; /* Menetapkan tinggi gambar */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="header bg-dark text-light sticky-top">
+        <!-- Header Top -->
+        <div class="py-2 border-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="d-flex justify-content-start">
+                            <p class="my-2">
+                                Pengiriman gratis, garansi pengembalian atau pengembalian uang dalam 30 hari.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="d-flex justify-content-end">
+                            <div class="d-flex align-items-center">
+                                <a href="#" class="me-3 text-white text-decoration-none">Daftar</a>
+                                <a href="#" class="text-white text-decoration-none">Pertanyaan</a>
+                            </div>
+                            <div class="dropdown ms-3">
+                                <button class="btn btn-link dropdown-toggle text-white text-decoration-none" type="button" id="currencyDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    IDR <i class="bi bi-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="currencyDropdown">
+                                    <li><a class="dropdown-item" href="#">IDR</a></li>
+                                    <li><a class="dropdown-item" href="#">EUR</a></li>
+                                    <li><a class="dropdown-item" href="#">GBP</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Main Header -->
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-lg-3 col-md-3">
+                    <div class="m-3">
+                        <a href="./index.html" class="text-white text-decoration-none">
+                            <!-- <img src="img/logo.png" alt="Logo" class="img-fluid"> -->
+                            <h2>TOKOKITA</h2>
+                        </a>
+                    </div>
+                </div>
+    
+                <!-- Navigation Menu -->
+                <div class="col-lg-6 col-md-6">
+                    <nav class="navbar navbar-expand-lg navbar-dark p-0">
+                        <ul class="navbar-nav mx-auto my-3">
+                            <li class="nav-item active"><a class="nav-link" href="./index.html">Beranda</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="./toko.html">Toko</a></li>
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Pages
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                                    <li><a class="dropdown-item" href="./about.html">About Us</a></li>
+                                    <li><a class="dropdown-item" href="./shop-details.html">Shop Details</a></li>
+                                    <li><a class="dropdown-item" href="./shopping-cart.html">Shopping Cart</a></li>
+                                    <li><a class="dropdown-item" href="./checkout.html">Check Out</a></li>
+                                    <li><a class="dropdown-item" href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li> -->
+                            <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./contact.html">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+    
+                <!-- Header Icons and Cart -->
+                <div class="col-lg-3 col-md-3 my-4">
+                    <div class="d-flex justify-content-end align-items-center text-white">
+                        <a href="#" class="me-3 text-white text-decoration-none"><i class="bi bi-search"></i></a>
+                        <a href="#" class="me-3 text-white text-decoration-none"><i class="bi bi-cart4"></i> <span>0</span></a>
+                        <div class="price">IDR 0</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hamburger Icon (for mobile menu) -->
+            <div class="canvas__open d-lg-none">
+                <i class="bi bi-list"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Grid Section -->
+    <section class="product-grid py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Produk Kami</h2>
+        <div class="row">
+          <!-- Produk 1 -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top product-image" alt="Nike Air Max">
+              <div class="card-body text-center">
+                <h5 class="card-title">Nike Air Max</h5>
+                <p class="card-text">IDR 1.899.000</p>
+                <div class="d-flex justify-content-center text-warning my-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produk 2 -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1554735490-5974588cbc4f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top product-image" alt="Adidas 350">
+              <div class="card-body text-center">
+                <h5 class="card-title">Adidas 350</h5>
+                <p class="card-text">IDR 1.250.000</p>
+                <div class="d-flex justify-content-center text-warning my-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produk 3 -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1463100099107-aa0980c362e6?q=80&w=2070&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top product-image" alt="Converse Classic">
+              <div class="card-body text-center">
+                <h5 class="card-title">Converse Classic</h5>
+                <p class="card-text">IDR 899.000</p>
+                <div class="d-flex justify-content-center text-warning my-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produk 4 -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+              <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/MTA-154694397/puma_puma_men_sportswear_trinity_puma_sepatu_olahraga_pria_-38928901-_full01_viz7r4ry.jpg" class="card-img-top product-image" alt="Puma Sport">
+              <div class="card-body text-center">
+                <h5 class="card-title">Puma Sport</h5>
+                <p class="card-text">IDR 1.100.000</p>
+                <div class="d-flex justify-content-center text-warning my-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produk 5 -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+              <img src="https://img.ncrsport.com/img/storage/large/C00074286-1.jpg" class="card-img-top product-image" alt="Reebok Classic">
+              <div class="card-body text-center">
+                <h5 class="card-title">Reebok Classic</h5>
+                <p class="card-text">IDR 750.000</p>
+                <div class="d-flex justify-content-center text-warning my-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Produk 6 -->
+          <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card">
+              <img src="https://www.newbalance.co.id/media/catalog/product/cache/b444f50a64a092a2138a5e1cbd49879a/0/8/0888-NEWU740GR200W09H-1.jpg" class="card-img-top product-image" alt="New Balance 574">
+              <div class="card-body text-center">
+                <h5 class="card-title">New Balance 574</h5>
+                <p class="card-text">IDR 1.450.000</p>
+                <div class="d-flex justify-content-center text-warning my-2">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-half"></i>
+                    <i class="bi bi-star"></i>
+                </div>
+                <a href="#" class="btn btn-primary"><i class="bi bi-cart4"></i> Tambahkan ke Keranjang</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5 bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <!-- Bagian Tentang Kami -->
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                    <div class="footer__about">
+                        <div class="footer__logo mb-3">
+                            <a href="#" class="text-white text-decoration-none" class="text-white text-decoration-none">
+                                <h2>TOKOKITA</h2>
+                                <!-- <img src="img/footer-logo.png" alt="Logo" class="img-fluid"> -->
+                            </a>
+                        </div>
+                        <p>Pelanggan adalah inti dari model bisnis unik kami, yang mencakup desain.</p>
+                        <a href="#" class="text-white text-decoration-none"><img src="pembayaran.png" alt="Metode Pembayaran" class="img-fluid"></a>
+                    </div>
+                </div>
+    
+                <!-- Bagian Belanja -->
+                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6 mb-4">
+                    <div class="footer__widget">
+                        <h6>Belanja</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Toko Pakaian</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Sepatu Terbaru</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Aksesoris</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Diskon</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Bagian Dukungan Pelanggan -->
+                <div class="col-lg-2 col-md-3 col-sm-6 mb-4">
+                    <div class="footer__widget">
+                        <h6>Dukungan Pelanggan</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Hubungi Kami</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Metode Pembayaran</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Pengiriman</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Pengembalian &amp; Penukaran</a></li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Bagian Newsletter -->
+                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6 mb-4">
+                    <div class="footer__widget">
+                        <h6>Newsletter</h6>
+                        <div class="footer__newslatter">
+                            <p>Jadilah yang pertama tahu tentang produk baru, katalog, diskon &amp; promo!</p>
+                            <form action="#" method="post">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Email Anda" aria-label="Email Anda" required>
+                                    <button class="btn btn-primary" type="submit"><i class="bi bi-envelope"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bagian Hak Cipta Footer -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="footer__copyright__text">
+                        <p class="mb-0">Copyright ©
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
